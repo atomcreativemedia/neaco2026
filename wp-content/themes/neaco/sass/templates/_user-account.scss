@@ -1,0 +1,93 @@
+.user-account {
+	@include e('main') {
+		@extend %pad;
+	}
+	@include e('intro') {
+		
+	}
+	@include e('the-form') {
+		background-color: $grey_light;
+		padding: $default_spacing_xs;
+	}
+	@include e('form') {
+		font-size: 0;
+	}
+	@include e('form-item') {
+		label {
+			display: block;
+			font-size: 14px;
+			margin-bottom: 3px;
+		}
+		input {
+			display: block;
+			border: none;
+			width: 100%;
+			padding: 10px 15px;
+			margin: 0;
+			font-size: 16px;
+			&:disabled {
+				background-color: darken($grey_light,7%);
+				font-style: italic;
+			}
+		}
+		@include m('first-name') {
+			@include media-breakpoint-up(md) {
+				width: 48%;
+				display: inline-block;
+				margin-right: 4%;
+			}
+		}
+		@include m('last-name') {
+			@include media-breakpoint-up(md) {
+				width: 48%;
+				display: inline-block;
+			}
+		}
+		@include m('phone') {
+			@include media-breakpoint-up(md) {
+				width: 48%;
+				display: inline-block;
+				margin-right: 4%;
+			}
+		}
+		@include m('email') {
+			@include media-breakpoint-up(md) {
+				width: 48%;
+				display: inline-block;
+			}
+		}
+		@include m('company-name') {
+			
+		}
+		@include m('password') {
+			
+		}
+		@include m('submit') {
+			input {
+				margin-top: 10px;
+				background-color: $green;
+				color: $white;
+				font-weight: 600;
+				width: auto;
+				padding: 20px 30px;
+				@extend %transition;
+				
+				&:hover {
+					background-color: $green_alt;
+				}
+			}
+		}
+	}
+	@include e('form-error') {
+		padding: 20px;
+		background-color: #BF0530;
+		color: $white;
+		font-size: 16px;
+	}
+	@include e('form-success') {
+		padding: 20px;
+		background-color: $green;
+		color: $white;
+		font-size: 16px;
+	}
+}

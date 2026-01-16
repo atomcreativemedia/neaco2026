@@ -1,0 +1,487 @@
+.gform_wrapper {
+	margin: 0;
+}
+.gform_body {
+	.gform_fields { // the ul
+		margin: 0;
+		padding: 0;
+	}
+	.gfield { // the li
+		margin: 0 1.5% 20px;
+		padding: 0;
+		list-style-type: none;
+			&.gfield_html {
+				p {
+					font-size: 14px;
+					@include media-breakpoint-up(md) {
+						font-size: 18px;
+					}
+				}
+			}
+		&.half-width {
+			width: 100%;
+			display: inline-block;
+			font-size: 0;
+			@include media-breakpoint-up(md) {
+				width: 47%;
+			}
+		}
+		&.full-width {
+			width: 100%;
+			@include media-breakpoint-up(md) {
+				width: 97%;
+			}
+		}
+		
+		&.icon {
+			position: relative;
+			&::before {
+				font-family: $fontawesome_pro;
+				font-weight: 300;
+				font-size: 18px;
+				color: $steel;
+				position: absolute;
+				left: 15px;
+				top: 10px;
+			}
+			@include m('user') {
+				&::before {
+					content: "\f007";
+				}
+			}
+			@include m('email') {
+				&::before {
+					content: "\f0e0";
+				}
+			}
+			@include m('phone') {
+				&::before {
+					content: "\f095";
+				}
+			}
+			@include m('map-pin') {
+				&::before {
+					content: "\f3c5";
+					top: 11px;
+					transform: none;
+				}
+			}
+			@include m('pencil') {
+				&::before {
+					content: "\f303";
+					top: 11px;
+					transform: none;
+				}
+			}
+			@include m('buildings') {
+				&::before {
+					content: "\e0cc";
+					top: 11px;
+					transform: none;
+				}
+			}
+			@include m('lock') {
+				&::before {
+					content: "\f502";
+					top: 11px;
+					transform: none;
+				}
+			}
+			@include m('file-upload') {
+				&::before {
+					content: "\f574";
+					top: 44px;
+					transform: none;
+				}
+			}
+		}
+		
+		
+		&.hidden_label {
+			.gfield_label {
+				display: none;
+			}
+		}
+		label {
+			font-size: 18px;
+			margin: 0 0 3px 0;
+			letter-spacing: normal;
+		}
+		.ginput_container {
+			&.ginput_complex {
+				font-size: 0;
+				span {
+					display: inline-block;
+					margin: 0 2%;
+					width: 48%;
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+			&.ginput_container_checkbox {
+				ul.gfield_checkbox {
+					@extend %pmreset;
+					li {
+						@extend %pmreset;
+						margin-bottom: 20px;
+						list-style-type: none;
+						display: flex;
+						align-items: center;
+						label {
+							font-weight: 700;
+							flex-basis: 90%;
+						}
+						input {
+							-webkit-appearance: none;
+							   -moz-appearance: none;
+							        appearance: none;
+							width: 20px;
+							height: 20px;
+							padding: 0;
+							position: relative;
+							margin-right: 10px;
+							&::after {
+								content: "\f00c";
+								font-family: $fontawesome_pro;
+								position: absolute;
+								top: 50%;
+								left: 0;
+								width: 100%;
+								text-align: center;
+								transform: translateY(-45%);
+								color: transparent;
+								font-size: 12px;
+								font-weight: 700;
+								@extend %transition;
+							}
+							&:checked::after {
+								color: $grey_dark;
+							}
+						}
+					}
+				}
+			}
+		}
+		input,textarea {
+			width: 100%;
+			margin: 0;
+			padding: 10px 15px 10px 45px;
+			font-size: 18px;
+			border: none;
+			&::placeholder {
+				color: $grey_med;
+			}
+		}
+		&.gform_validation_container {
+			display: none;
+		}
+	}
+}
+.gform_footer {
+	padding: 1.5%;
+	position: relative;
+	input[type="submit"] {
+		padding: $default_button_padding;
+		border: none;
+		background-color: $white;
+		@extend %transition;
+		font-size: 18px;
+	}
+}
+
+
+form.customer-survey {
+	margin-top: 50px;
+	.gform_fields {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+	.gfield {
+		margin: 0;
+		flex: 1 1 calc(100%);
+		input, textarea {
+			background-color: #d9d9d9;
+			padding: 10px 15px;
+			&::placeholder {
+				color: $steel;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 22px;
+			}
+		}
+		label.gfield_label {
+			font-size: 16px;
+			font-weight: bold;
+			text-align: left;
+			margin-bottom: 10px;
+			@include media-breakpoint-up(md) {
+				font-size: 20px;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 22px;
+			}
+		}
+		@include m('type-text') {
+			
+			@include media-breakpoint-up(lg) {
+				flex: 1 1 calc(50% - 8px);
+			}
+		}
+		@include m('type-email') {
+			
+			@include media-breakpoint-up(lg) {
+				flex: 1 1 calc(50% - 8px);
+			}
+		}
+		@include m('type-textarea') {
+			
+		}
+		&.radio-boxes {
+			margin: 30px 0;
+			legend {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: left;
+				margin-bottom: 12px;
+				@include media-breakpoint-up(md) {
+					font-size: 20px;
+				}
+				@include media-breakpoint-up(xxl) {
+					font-size: 22px;
+				}
+			}
+			.ginput_container {
+				.gfield_radio {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					flex-wrap: wrap;
+					gap: 16px;
+					.gchoice {
+						display: flex;
+						flex-direction: column;
+						flex: 1 1 calc(50% - 8px);
+						input {
+							-webkit-appearance: none;
+							   -moz-appearance: none;
+							        appearance: none;
+							padding: 0;
+							position: relative;
+							background-color: white;
+							@extend %transition;
+							&:checked + label {
+								background-color: $green;
+							}
+							
+							@include media-breakpoint-up(xl) {
+								width: 32px;
+								height: 32px;
+								border: 6px solid $green;
+								@include radius(500px);
+								flex: 0 0 32px;
+								&:checked {
+									background-color: $steel;
+								}
+								&:checked + label {
+									background-color: transparent;
+								}
+							}
+						}
+						label {
+							width: 100%;
+							font-size: 14px;
+							margin: 0;
+							border: 2px solid $green;
+							padding: 10px;
+							text-align: center;
+							@extend %transition;
+							@include media-breakpoint-up(md) {
+								font-size: 18px;
+							}
+							@include media-breakpoint-up(lg) {
+								font-size: 20px;
+							}
+							@include media-breakpoint-up(xl) {
+								border: none;
+								padding: 0;
+								text-align: left;
+							}
+							@include media-breakpoint-up(xxl) {
+								font-size: 22px;
+							}
+						}
+						
+						@include media-breakpoint-up(xl) {
+							flex-direction: row;
+							flex: 1 1 calc(25% - 12px);
+							gap: 6px;
+						}
+					}
+					
+					/*@include media-breakpoint-up(xl) {
+						flex-wrap: nowrap;
+					}*/
+				}
+			}
+		}
+		
+		&.radio-satisfaction {
+			margin: 30px 0;
+			legend {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: left;
+				margin-bottom: 12px;
+				@include media-breakpoint-up(md) {
+					font-size: 20px;
+				}
+				@include media-breakpoint-up(xxl) {
+					font-size: 22px;
+				}
+			}
+			.ginput_container {
+				.gfield_radio {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					.gchoice {
+						display: flex;
+						flex-direction: column;
+						flex: 0;
+						input {
+							-webkit-appearance: none;
+							   -moz-appearance: none;
+							        appearance: none;
+							padding: 0;
+							position: relative;
+							background-color: white;
+							height: auto;
+							@extend %transition;
+							&::after {
+								font-family: $fontawesome_pro;
+								width: 100%;
+								text-align: center;
+								color: $steel;
+								font-size: 32px;
+								font-weight: 300;
+								@extend %transition;
+							}
+							&:checked::after {
+								color: $green;
+							}
+							&[value="Very Likely"] {
+								&::after {
+									content: "\e392";
+								}
+							}
+							&[value="Likely"] {
+								&::after {
+									content: "\f118";
+								}
+							}
+							&[value="Neutral"] {
+								&::after {
+									content: "\f11a";
+								}
+							}
+							&[value="Unlikely"] {
+								&::after {
+									content: "\e376";
+								}
+							}
+							&[value="Very Unlikely"] {
+								&::after {
+									content: "\f119";
+								}
+							}
+							
+							@include media-breakpoint-up(md) {
+								&::after {
+									font-size: 48px;
+								}
+							}
+							@include media-breakpoint-up(lg) {
+								&::after {
+									font-size: 58px;
+								}
+							}
+							@include media-breakpoint-up(xl) {
+								width: 32px;
+								height: 32px;
+								border: 6px solid $green;
+								@include radius(500px);
+								flex: 0 0 32px;
+								&:checked {
+									background-color: $steel;
+								}
+								
+								&::after {
+									content: none !important;
+								}
+							}
+						}
+						label {
+							font-size: 14px;
+							text-align: center;
+							@include media-breakpoint-up(md) {
+								font-size: 18px;
+							}
+							@include media-breakpoint-up(lg) {
+								font-size: 20px;
+							}
+							@include media-breakpoint-up(xl) {
+								border: none;
+								padding: 0;
+								text-align: left;
+							}
+							@include media-breakpoint-up(xxl) {
+								font-size: 22px;
+							}
+						}
+						
+						
+						
+						
+						@include media-breakpoint-up(xl) {
+							flex-direction: row;
+							flex: 1 1 calc(25% - 12px);
+							gap: 6px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.gform_footer {
+		padding: 30px 0 0 0;
+		text-align: left;
+		button[type="submit"] {
+			span {
+				background-color: $green;
+				color: $steel;
+				margin-right: 0;
+				padding: 12px 18px;
+				&::after {
+					font-family: $fontawesome_pro;
+					content: '\f054';
+					margin-left: 15px;
+				}
+				span {
+					display: none;
+				}
+				@include media-breakpoint-up(md) {
+					font-size: 20px;
+				}
+				@include media-breakpoint-up(xxl) {
+					font-size: 22px;
+				}
+			}
+		}
+	}
+}

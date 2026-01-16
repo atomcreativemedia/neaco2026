@@ -1,0 +1,123 @@
+@include e('faqs') {
+	@extend %pad;
+	
+	@include section_intro;
+	
+	@include e('faqs') {
+		@include section_intro;
+		
+		@include m('dark') {
+			.faq {
+				border-bottom: 1px solid $green;
+			}
+			.faq-q {
+				color: $steel;
+			}
+			.faq-a {
+				color: $steel;
+			}
+		}
+		@include m('light') {
+			.faq {
+				border-bottom: 1px solid $green;
+			}
+			.faq-q {
+				color: $grey_light;
+			}
+			.faq-a {
+				color: $grey_light;
+			}
+		}
+		@include m('black') {
+			.faq {
+				border-bottom: 1px solid $green;
+			}
+			.faq-q {
+				color: $black;
+			}
+			.faq-a {
+				color: $black;
+			}
+		}
+		@include m('white') {
+			.faq {
+				border-bottom: 1px solid $green;
+			}
+			.faq-q {
+				color: $white;
+			}
+			.faq-a {
+				color: $white;
+			}
+		}
+	}
+	
+	@include e('faq') {
+		margin-bottom: 30px;
+		padding-left: 0;
+		padding-bottom: 30px;
+		padding-right: 0;
+		border-bottom: 1px solid $green;
+	}
+	@include e('faq-q') {
+		position: relative;
+		padding-right: $default_spacing_sm;
+		cursor: pointer;
+		@extend %transition;
+		font-size: 20px;
+		&:hover {
+			color: $green;
+		}
+		
+		.plus-minus-toggle {
+			position: absolute;
+			top: 0;
+			z-index:2;
+			right: 0;
+			width: 50px;
+			height: 100%;
+			
+			&::after {
+				content: '\f078';
+				font-family: $fontawesome_pro;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%) rotate(180deg);
+				@extend %transition;
+			}
+			&.collapsed {
+				&::after {
+					transform: translateY(-50%) rotate(0deg);
+					@extend %transition;
+				}
+			}
+		}
+		
+		@include media-breakpoint-up(xl) {
+			font-size: 28px;
+		}
+	}
+	@include e('faq-a') {
+		max-height: 0;
+		opacity: 0;
+		position: relative;
+		@extend %transition;
+		
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 0;
+			@extend %transition;
+		}
+		
+		&.active {
+			max-height: 1000px;
+			opacity: 1;
+			&::before {
+				height: 30px;
+			}
+		}
+	}
+}

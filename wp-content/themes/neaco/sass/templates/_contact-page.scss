@@ -1,0 +1,117 @@
+.contact-page {
+	@include e('main') {
+		@extend %pad-top;
+	}
+	@include e('form') {
+		
+	}
+	@include e('form-introduction') {
+		
+	}
+	@include e('the-form') {
+		background-color: $grey_light;
+		padding: $default_spacing_xs;
+		@include media-breakpoint-up(md) {
+			padding: $default_spacing_sm;
+		}
+		.gfield_checkbox {
+			cursor: pointer;
+			.gchoice {
+				display: flex;
+			}
+			input {
+				cursor: pointer;
+				background-color: $white;
+				-webkit-appearance: none;
+				   -moz-appearance: none;
+				        appearance: none;
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				position: relative;
+				margin-right: 10px;
+				@include radius(4px);
+				flex: none;
+				&::after {
+					content: "\f00c";
+					font-family: $fontawesome_pro;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 100%;
+					text-align: center;
+					transform: translateY(-45%);
+					color: transparent;
+					font-size: 12px;
+					font-weight: 700;
+					@extend %transition;
+				}
+				&:checked::after {
+					color: $green;
+				}
+			}
+			label {
+				cursor: pointer;
+				font-weight: 400 !important;
+				font-size: 14px;
+				flex: 1;
+			}
+		}
+		textarea {
+			height: 200px;
+		}
+		button {
+			&[type="submit"] {
+				.button-span {
+					background-color: $steel;
+					color: $green !important;
+					span {
+						background-color: $green;
+						&::before { color: $steel !important; }
+						&::after { color: $steel !important; }
+					}
+				}
+			}
+		}
+	}
+	
+	@include e('details') {
+		
+	}
+	@include e('details-introduction') {
+		
+	}
+	@include e('the-details') {
+		@include departments_list;
+		
+		@include e('department-contact-item') {
+			@include m('address') {
+				i {
+					top: 8px !important;
+					transform: none !important;
+				}
+			}
+		}
+	}
+	
+	@include e('map') {
+		
+	}
+	@include e('the-map') {
+		position: relative;
+		padding-bottom: 56.25%; /* 16:9 */
+		height: 0;
+		@include media-breakpoint-up(lg) {
+			padding-bottom: 35%;
+		}
+		iframe {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+		}
+	}
+	
+	@include merchants;
+}

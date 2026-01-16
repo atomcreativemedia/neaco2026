@@ -1,0 +1,100 @@
+.career-post {
+	@include e('content') {
+		@extend %pad;
+	}
+	@include e('heading') {
+		@include career_heading;
+	}
+	
+	@include e('options') {
+		
+	}
+	@include e('option') {
+		@include career_options;
+	}
+	
+	@include e('department') {
+		padding-bottom: 10px;
+		border-bottom: 1px dotted $grey_med;
+	}
+	
+	@include e('application') {
+		background-color: $grey_light;
+		padding: $default_spacing_xs;
+		@include media-breakpoint-up(md) {
+			padding: $default_spacing_sm;
+		}
+		input {
+			&[type="file"] {
+				background-color: white;
+				&::file-selector-button {
+					background-color: $grey_light;
+					cursor: pointer;
+					border: none;
+				}
+			}
+		}
+		.gform_fileupload_rules {
+			font-size: 14px;
+		}
+		textarea {
+			height: 200px;
+		}
+		.gfield_checkbox {
+				cursor: pointer;
+				.gchoice {
+					display: flex;
+				}
+				input {
+					cursor: pointer;
+					background-color: $white;
+					-webkit-appearance: none;
+					   -moz-appearance: none;
+					        appearance: none;
+					width: 20px;
+					height: 20px;
+					padding: 0;
+					position: relative;
+					margin-right: 10px;
+					@include radius(4px);
+					flex: none;
+					&::after {
+						content: "\f00c";
+						font-family: $fontawesome_pro;
+						position: absolute;
+						top: 50%;
+						left: 0;
+						width: 100%;
+						text-align: center;
+						transform: translateY(-45%);
+						color: transparent;
+						font-size: 12px;
+						font-weight: 700;
+						@extend %transition;
+					}
+					&:checked::after {
+						color: $green;
+					}
+				}
+				label {
+					cursor: pointer;
+					font-weight: 400 !important;
+					font-size: 14px;
+					flex: 1;
+				}
+			}
+		button {
+			&[type="submit"] {
+				.button-span {
+					background-color: $steel;
+					color: $green !important;
+					span {
+						background-color: $green;
+						&::before { color: $steel !important; }
+						&::after { color: $steel !important; }
+					}
+				}
+			}
+		}
+	}
+}

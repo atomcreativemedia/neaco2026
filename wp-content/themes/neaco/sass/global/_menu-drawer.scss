@@ -1,0 +1,54 @@
+.menu-drawer {
+	@include drawer_control;
+	
+	@include media-breakpoint-up(lg) {
+		display: none;
+	}
+	
+	//customisations
+	@include e('layer-1') {
+		width: 100%;
+		left: -100%;
+		border-left: 2px solid $green;
+		border-right: 2px solid $green;
+		background-color: $steel;
+		&.open {
+			left: 0;
+		}
+	}
+	@include e('logo-container') {
+		color: $white;
+		max-width: 50%;
+		@include media-breakpoint-up(md) {
+			max-width: 30%;
+		}
+	}
+	@include e('close') {
+		span i {
+			color: $white;
+		}
+	}
+	
+	// drawer header height is always 10%
+	@include e('body') {
+	    height: 65%;
+	}
+	@include e('footer') {
+	    height: 25%;
+	}
+	
+	@include e('footer') {
+		border-top: 1px solid $white;
+		a {
+			color: $white;
+			&:hover {
+				color: $green;
+			}
+		}
+		@include e('item') {
+			color: $white;
+		}
+	}
+	
+	@include drawer_menu_control;
+}

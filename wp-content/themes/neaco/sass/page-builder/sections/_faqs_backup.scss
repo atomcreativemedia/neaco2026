@@ -1,0 +1,156 @@
+@include e('faqs') {
+	@extend %pad;
+	
+	@include section_intro;
+	
+	@include e('faqs') {
+		@include section_intro;
+		
+		@include m('dark') {
+			.faq {
+				border-bottom: 1px solid $grey_dark;
+			}
+			.faq-q {
+				color: $grey_dark;
+				.plus-minus-toggle {
+					&:before,
+					&:after {
+						background: $grey_dark;
+					}
+				}
+			}
+			.faq-a {
+				color: $grey_dark;
+			}
+		}
+		@include m('light') {
+			.faq {
+				border-bottom: 1px solid $grey_light;
+			}
+			.faq-q {
+				color: $grey_light;
+				.plus-minus-toggle {
+					&:before,
+					&:after {
+						background: $grey_light;
+					}
+				}
+			}
+			.faq-a {
+				color: $grey_light;
+			}
+		}
+		@include m('black') {
+			.faq {
+				border-bottom: 1px solid $black;
+			}
+			.faq-q {
+				color: $black;
+				.plus-minus-toggle {
+					&:before,
+					&:after {
+						background: $black;
+					}
+				}
+			}
+			.faq-a {
+				color: $black;
+			}
+		}
+		@include m('white') {
+			.faq {
+				border-bottom: 1px solid $white;
+			}
+			.faq-q {
+				color: $white;
+				.plus-minus-toggle {
+					&:before,
+					&:after {
+						background: $white;
+					}
+				}
+			}
+			.faq-a {
+				color: $white;
+			}
+		}
+	}
+	
+	@include e('faq') {
+		margin-bottom: $default_spacing_sm;
+		padding-bottom: $default_spacing_sm;
+		border-bottom: 1px solid $steel;
+	}
+	@include e('faq-q') {
+		position: relative;
+		padding-right: $default_spacing_sm;
+		cursor: pointer;
+		@extend %transition;
+		&:hover {
+			color: $green;
+			.plus-minus-toggle {
+				&:before,
+				&:after {
+					background: $green;
+				}
+			}
+		}
+		
+		.plus-minus-toggle {
+			height: 21px;
+			position: absolute;
+			width: 21px;
+			top: 50%;
+			z-index:2;
+			right: 0;
+			
+			&:before,
+			&:after {
+				background: $black;
+				content: '';
+				height: 5px;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 21px;
+				@extend %transition;
+			}
+
+			&:after {
+				transform-origin: center;
+			}
+
+			&.collapsed {
+				&:after {
+					transform: rotate(90deg);
+				}
+
+				&:before {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+	@include e('faq-a') {
+		max-height: 0;
+		opacity: 0;
+		position: relative;
+		@extend %transition;
+		
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 0;
+			@extend %transition;
+		}
+		
+		&.active {
+			max-height: 1000px;
+			opacity: 1;
+			&::before {
+				height: 30px;
+			}
+		}
+	}
+}

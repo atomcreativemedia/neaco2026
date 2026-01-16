@@ -1,0 +1,29 @@
+@include e('text-block-image') {
+	@extend %pad;
+	@include e('content') {
+		&.content-colour {
+			@include colour_control;
+		}
+		@include media-breakpoint-up(xl) {
+			padding: 50px 0;
+		}
+	}
+	@include e('image') {
+		height: 400px;
+		//background-size: contain;
+		@include media-breakpoint-up(lg) {
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			
+		}
+	}
+	
+	@include e('buttons') {
+		@include product_range_buttons;
+		justify-content: start;
+	}
+}

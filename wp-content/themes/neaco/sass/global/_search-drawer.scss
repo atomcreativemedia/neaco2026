@@ -1,0 +1,146 @@
+.search-drawer {
+	@include drawer_control;
+	
+	//customisations
+	@include e('layer-1') {
+		width: 100%;
+		right: -100%;
+		border-left: none;
+		border-right: none;
+		background-color: $grey_light;
+		&.open {
+			right: 0;
+		}
+	}
+	@include e('logo-container') {
+		color: $steel;
+		//max-width: 50%;
+	}
+	@include e('close') {
+		span i {
+			color: $steel;
+		}
+	}
+	
+	// drawer header height is always 10%
+	@include e('body') {
+	    height: 90%;
+	}
+	@include e('footer') {
+	    height: 0;
+	}
+	
+	@include e('footer') {
+		border-top: 1px solid $steel;
+		a {
+			color: $green;
+			&:hover {
+				color: $green;
+			}
+		}
+		@include e('item') {
+			color: $steel;
+		}
+	}
+	
+	// search-form specific styles
+	@include e('form') {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -100%);
+		width: 80%;
+		text-align: center;
+		
+		@include media-breakpoint-up(md) {
+			width: 30%;
+		}
+		
+		
+		fieldset {
+			position: relative;
+		}
+		
+		.form-input-containter {
+			position: relative;
+			&::before {
+				font-family: $fontawesome_pro;
+				font-weight: 300;
+				font-size: 18px;
+				color: $steel;
+				position: absolute;
+				left: 15px;
+				content: '\f002';
+				@include top50;
+			}
+		}
+		
+		input {
+			width: 100%;
+			margin: 0;
+			padding: 15px 65px 15px 45px;
+			font-size: 18px;
+			border: none;
+			&::placeholder {
+				color: $grey_med;
+				font-size: 18px;
+			}
+			
+			@include media-breakpoint-up(md) {
+				padding: 20px 95px 20px 45px
+			}
+		}
+		
+		button {
+			span {
+				position: relative;
+				&::before {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-500%, -50%);
+					font-family: $fontawesome_pro;
+					content: '\f054';
+					@extend %transition;
+				}
+				&::after {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					font-family: $fontawesome_pro;
+					content: '\f054';
+					@extend %transition;
+				}
+			}
+			
+			overflow: hidden;
+			border: none;
+			background-color: $steel;
+			color: $white;
+			display: block;
+			font-size: 16px;
+			@extend %transition;
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			padding: 0 9%;
+			
+			&:hover {
+				span {
+					&::before {
+						transform: translate(-50%, -50%);
+					}
+					&::after {
+						transform: translate(500%, -50%);
+					}
+				}
+			}
+			
+			@include media-breakpoint-up(md) {
+				padding: 0 6%;
+			}
+		}
+	}
+}

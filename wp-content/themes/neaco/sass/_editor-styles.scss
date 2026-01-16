@@ -1,0 +1,65 @@
+@import 'scss/variables';
+
+h1,h2,h3,h4,h5,h6 {
+	font: $heading_font_stack;
+	margin-bottom: 20px;
+	strong {
+		font-weight: 300;
+	}
+	a {
+		color: $green;
+		text-decoration: none;
+	}
+}
+h1 {
+	font-size: $h1_sm;
+}
+h2 {
+	font-size: $h2_sm;
+}
+h3 {
+	font-size: $h3_sm;
+}
+h4 {
+	font-size: $h4_sm;
+}
+h5 {
+	font-size: $h5_sm;
+}
+h6 {
+	font-size: $h6_sm;
+}
+
+p, ul li, ol li {
+	font: $font_stack;
+	a {
+		color: $green;
+		text-decoration: none;
+	}
+}
+span.fancy-heading {
+	position: relative;
+	z-index: 0;
+	&::before {
+		content: "";
+		position: absolute;
+		top: -5px;
+		left: -5px;
+		background-color: rgba($green,0.45);
+		width: 30px;
+		height: 30px;
+		z-index: -1;
+	}
+}
+
+span.heading-underline {
+	display: inline-block;
+	&::after {
+		content: '';
+		width: 50%;
+		height: 1px;
+		background-color: $steel;
+		display: block;
+		margin-top: $default_spacing_sm - 30;
+	}
+}

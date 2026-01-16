@@ -1,0 +1,90 @@
+body.login {
+	background-color: #3B4752;
+	div#login {
+		h1 a {
+			background-image: url("img/neaco-logo-h--alt.png");
+			width: 100%;
+			background-size: contain;
+		}
+		
+		form#loginform,
+		form#lostpasswordform {
+			padding: 30px 0;
+			background-color: transparent;
+			border: none;
+			p {
+				color: #fff;
+				&.forgetmenot {
+					input#rememberme {
+						
+					}
+				}
+				
+				&.submit {
+					input#wp-submit {
+						background-color: #AAC642;
+						color: #3B4752;
+					}
+				}
+			}
+			label {
+				color: #fff;
+				margin-bottom: 8px;
+			}
+			input {
+				border: none;
+				padding: 10px 20px;
+				&#user_login {
+					
+				}
+				&#user_pass {
+					
+				}
+			}
+		}
+		
+		form.admin-email-confirm-form p.admin-email__details {
+			color: #50575e;
+		}
+		
+		p {
+			color: #fff;
+			&#nav a {
+				color: #fff;
+			}
+		}
+		
+		p {
+			color: #fff;
+			&#backtoblog a {
+				color: #fff;
+			}
+		}
+		
+		.notice.notice-info.message p,
+		.notice.notice-error p {
+			color: #3B4752 !important;
+		}
+		
+		#login_error, .message, .success {
+			color: #3B4752 !important;
+		}
+		#login_error {
+			border-left: 4px solid #ba1b1b;
+		}
+		.message {
+			border-left: 4px solid #AAC642;
+		}
+		.success {
+			border-left: 4px solid #25c477;
+		}
+	}
+	
+	div.language-switcher {
+		form#language-switcher {
+			label {
+				color: #fff;
+			}
+		}
+	}
+}

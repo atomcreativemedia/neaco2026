@@ -1,0 +1,70 @@
+@include e('featured-text') {
+	@extend %pad;
+	
+	@include e('content') {
+		@include colour_control;
+	}
+	@include e('content-quote') {
+		font-size: 24px;
+		font-weight: 100;
+		position: relative;
+		z-index: 1;
+		@extend %pad-top;
+		&::after {
+			font-family: $fontawesome_pro;
+			content: "\f10d";
+			font-size: 120px;
+			color: $green;
+			z-index: -1;
+			font-weight: 600;
+			opacity: 0.7;
+			position: absolute;
+			top: -20px;
+			left: -20px;
+		}
+		
+		@include media-breakpoint-up(md) {
+			font-size: 44px;
+			&::after {
+				font-size: 180px;
+			}
+		}
+		
+		&.quote-mark {
+			@include m('green') {
+				&::after {
+					color: $green;
+				}
+			}
+			@include m('dark') {
+				&::after {
+					color: $steel;
+				}
+			}
+			@include m('light') {
+				&::after {
+					color: $grey_light;
+				}
+			}
+			@include m('black') {
+				&::after {
+					color: $black;
+				}
+			}
+			@include m('white') {
+				&::after {
+					color: $white;
+				}
+			}
+		}
+	}
+	@include e('content-name-company') {
+		font-weight: 100;
+	}
+	@include e('content-name') {
+		
+	}
+	@include e('content-company') {
+		
+	}
+}

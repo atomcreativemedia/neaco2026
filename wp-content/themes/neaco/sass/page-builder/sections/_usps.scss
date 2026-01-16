@@ -1,0 +1,78 @@
+@include e('usps') {
+	@extend %pad;
+	
+	@include section_intro;
+	
+	@include e('usp-container') {
+		text-align: center;
+		position: relative;
+		margin-bottom: $default_spacing_sm;
+		&::after {
+			content: '';
+			height: 1px;
+			width: 50%;
+			background-color: $white;
+			display: block;
+			margin: 0 auto;
+		}
+		&:last-child {
+			margin-bottom: 0;
+			&::after {
+				content: none;
+			}
+		}
+		
+		@include media-breakpoint-up(md) {
+			text-align: left;
+			margin-bottom: 0;
+			&::after {
+				content: none;
+			}
+		}
+		
+	}
+	@include e('usp') {
+		@include colour_control;
+		margin-bottom: $default_spacing_sm;
+		@include media-breakpoint-up(md) {
+			margin-bottom: 0;
+		}
+	}
+	@include e('usp-link') {
+		display: block;
+		text-decoration: none;
+		div, p, h3 { @extend %transition; }
+		&:hover {
+			div, p, h3 { color: $green; }
+		}
+	}
+	@include e('usp-icon') {
+		font-size: 54px;
+		color: $green;
+		@include media-breakpoint-up(md) {
+			font-size: 84px;
+		}
+		
+		@include m('colour-dark') {
+			color: $steel;
+		}
+		
+		@include m('colour-light') {
+			color: $grey_light;
+		}
+		
+		@include m('colour-black') {
+			color: $black;
+		}
+		
+		@include m('colour-white') {
+			color: $white;
+		}
+	}
+	@include e('usp-heading') {
+		font-size: 24px;
+	}
+	@include e('usp-desc') {
+		
+	}
+}

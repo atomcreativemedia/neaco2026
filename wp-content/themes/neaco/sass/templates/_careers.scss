@@ -1,0 +1,73 @@
+.careers {
+	@include e('main') {
+		@extend %pad;
+	}
+	@include e('filters') {
+		margin-bottom: $default_spacing_sm;
+	}
+	@include e('filter') {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-bottom: 10px;
+		padding-left: 10px;
+	}
+	@include e('filter-checkbox') {
+		-webkit-appearance: none;
+		   -moz-appearance: none;
+		        appearance: none;
+		width: 20px;
+		height: 20px;
+		padding: 0;
+		position: relative;
+		margin-right: 10px;
+		background-color: $green;
+		@include radius(4px);
+		&::after {
+			content: "\f00c";
+			font-family: $fontawesome_pro;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			transform: translateY(-45%);
+			color: transparent;
+			font-size: 12px;
+			font-weight: 700;
+			@extend %transition;
+		}
+		&:checked::after {
+			color: $white;
+		}
+	}
+	@include e('filter-label') {
+		
+	}
+	@include e('items') {
+		
+	}
+	
+	@include e('item') {
+		margin-bottom: $default_spacing_sm;
+		padding-bottom: $default_spacing_sm;
+		border-bottom: 1px solid $steel;
+		display: none;
+		&.filtered {
+			display: block;
+		}
+	}
+	
+	@include e('item-heading') {
+		@include career_heading;
+	}
+	
+	@include e('item-option') {
+		@include career_options;
+	}
+	
+	@include e('item-department') {
+		padding-bottom: 10px;
+		border-bottom: 1px dotted $grey_med;
+	}
+}

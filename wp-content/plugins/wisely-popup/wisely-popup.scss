@@ -1,0 +1,87 @@
+@mixin e($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+@mixin m($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $value: map-get($breakpoints, $name);
+  @if $value != null {
+    @return $value;
+  }
+  @return null;
+}
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.wisely-popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.85);
+    z-index: 9999;
+    @include e('body') {
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%,-50%);
+    	width: 80%;
+    	@include media-breakpoint-up(sm) {
+    		width: 70%;
+    	}
+    	@include media-breakpoint-up(md) {
+    		width: 60%;
+    	}
+    	@include media-breakpoint-up(lg) {
+    		width: 50%;
+    	}
+    	@include media-breakpoint-up(xl) {
+    		width: 45%;
+    	}
+    }
+    @include e('header') {
+    	position: relative;
+    	text-align: right;
+    }
+    @include e('close') {
+    	background: none;
+	    border: none;
+	    font-size: 1.5rem;
+	    cursor: pointer;
+	    i {
+	        color: white;
+	    }
+    }
+    @include e('main') {
+    	background-color: white;
+    	padding: 10px;
+    }
+}

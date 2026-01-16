@@ -1,0 +1,8 @@
+@include e('case-studies') {
+	@extend %pad;
+	
+	@include section_intro;
+	@include e('intro') {
+		margin: 0;
+	}
+}

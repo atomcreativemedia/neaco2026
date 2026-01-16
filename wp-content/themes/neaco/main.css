@@ -1,0 +1,175 @@
+body.uri-new-homepage{
+    margin-top: 0 !important;
+}
+
+.uri-new-homepage .header.sticky-header {
+    transition: 0.35s ease-in-out;
+}
+
+.uri-new-homepage header i {
+	color: #ffffff;
+}
+
+.uri-new-homepage .header.sticky-header.scrolled {
+    background-color: rgba(0, 0, 0, 80%) !important;
+    backdrop-filter: blur(8px);
+}
+
+.uri-new-homepage .header__main__nav ul li a {
+    color: #ffffff !important;
+}
+
+.uri-new-homepage .header__main__nav .sub-menu li a {
+    color: #3b4752 !important;
+}
+
+.uri-new-homepage .header__main__nav ul li.menu-item-has-children a:hover {
+	color: #3b4752 !important;
+}
+
+.uri-new-homepage .header.sticky-header .container-fluid {
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 25px;
+}
+
+.uri-new-homepage .header.sticky-header.scrolled .container-fluid {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.uri-new-homepage .page-heading__overlay {
+    padding: 100px 0 0 0;
+}
+
+.uri-new-homepage #page-heading,
+.uri-new-homepage #page-heading .page-heading__content.page-heading__content--padding-large {
+    height: 100dvh;
+}
+
+.uri-new-homepage #page-heading .container-fluid.container-xl {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.uri-new-homepage #explore_container {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+	margin-bottom: 25px;
+}
+.uri-new-homepage #explore_container a p {
+	margin: 0;
+}
+.uri-new-homepage #explore_container a {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+	text-decoration: none;
+}
+
+#durable_fire_rated_etc,
+#why_engineers_architects_neaco {
+	margin: 8rem 0;
+}
+
+#about_neacos_product_offering {
+	margin-bottom: 5rem;
+}
+
+.features_graphic {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 15px;
+	margin-top: 45px;
+}
+.features_graphic .item img {
+	width: 150px;
+	aspect-ratio: 1/1;
+}
+
+.balustrade_points {
+	margin-bottom: 25px;
+}
+
+.balustrade_points .two_column {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	margin-bottom: 20px;
+}
+.balustrade_points .item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 20px;
+}
+
+.balustrade_points .item img {
+	width: 80px;
+}
+.balustrade_points .item p {
+	margin: 0;
+}
+
+.header__main__utility.header__main__contact {
+	background-color: #FB813B;
+}
+.header__main__utility.header__main__contact span {
+	color: #ffffff;
+}
+
+.header__main__nav ul {
+    display: flex;
+    justify-content: end;
+}
+
+#why_choose_neaco_section {
+	margin-bottom: 8rem;
+}
+
+#get_in_touch_section,
+#speak_to_a_specification_expert {
+	margin-bottom: 4rem;
+}
+
+@media (max-width: 1199px) {
+	.balustrade_points .two_column {
+		grid-template-columns: 1fr;
+	}
+	#why_choose_neaco_section {
+		margin-bottom: 2rem;
+	}
+}
+@media (max-width: 991px) {
+	#why_choose_neaco_section {
+		margin-bottom: 0;
+	}
+	#neaco_are_precision_engineers .col-11.col-md-10.col-lg-6.col-xxl-5.order-lg-0.position-relative,
+	#modular_fire_rated_balcony_systems .col-11.col-md-10.col-lg-6.col-xxl-5.order-lg-2.position-relative,
+	#balustrade_systems .col-11.col-md-10.col-lg-6.col-xxl-5.order-lg-0.position-relative {
+		display: none;
+	}
+}
+@media (max-width: 799px) {
+	.balustrade_points .item img {
+		width: 55px;
+	}
+	#durable_fire_rated_etc {
+		margin: 5rem 0;
+		margin-bottom: 2rem;
+	}
+	#why_engineers_architects_neaco {
+		margin-top: 3rem;
+	}
+}
+@media (max-width: 450px) {
+	.balustrade_points .item {
+		align-items: flex-start;
+	}
+}

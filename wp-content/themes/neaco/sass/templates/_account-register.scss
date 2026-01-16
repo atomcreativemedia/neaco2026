@@ -1,0 +1,93 @@
+.account-register {
+	@include e('main') {
+		@extend %pad;
+	}
+	@include e('intro') {
+		
+	}
+	@include e('the-form') {
+		background-color: $grey_light;
+		padding: $default_spacing_xs;
+		
+		.gfield {
+			input,textarea {
+				width: 100%;
+				padding: 10px 20px;
+				&::placeholder {
+					color: lighten($steel,30%);
+				}
+			}
+			&.gfield_html {
+				p {
+					font-size: 14px;
+				}
+			}
+			.gfield_checkbox {
+				cursor: pointer;
+				.gchoice {
+					display: flex;
+				}
+				input {
+					cursor: pointer;
+					background-color: $white;
+					-webkit-appearance: none;
+					   -moz-appearance: none;
+					        appearance: none;
+					width: 20px;
+					height: 20px;
+					padding: 0;
+					position: relative;
+					margin-right: 10px;
+					@include radius(4px);
+					flex: none;
+					&::after {
+						content: "\f00c";
+						font-family: $fontawesome_pro;
+						position: absolute;
+						top: 50%;
+						left: 0;
+						width: 100%;
+						text-align: center;
+						transform: translateY(-45%);
+						color: transparent;
+						font-size: 12px;
+						font-weight: 700;
+						@extend %transition;
+					}
+					&:checked::after {
+						color: $green;
+					}
+				}
+				label {
+					cursor: pointer;
+					font-weight: 400 !important;
+					font-size: 14px;
+					flex: 1;
+				}
+			}
+			.ginput_container_password {
+				span {
+					width: 47% !important;
+					
+					.password_input_container {
+						width: 100% !important;
+					}
+				}
+			}
+			
+			.gfield_validation_message {
+				font-size: 14px;
+			}
+		}
+		
+		.gform_validation_errors {
+			padding: 20px;
+			background-color: #BF0530;
+			margin-bottom: $default_spacing_xs;
+			h2 {
+				font-size: 16px;
+				color: $white;
+			}
+		}
+	}
+}

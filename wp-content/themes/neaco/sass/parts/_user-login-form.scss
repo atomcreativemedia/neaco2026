@@ -1,0 +1,36 @@
+.user-login-form {
+	@extend %pad;
+	@include e('the-form') {
+		background-color: $grey_light;
+		padding: $default_spacing_xs;
+		label {
+			display: block;
+			font-size: 14px;
+			margin-bottom: 3px;
+		}
+		input {
+			display: block;
+			border: none;
+			width: 100%;
+			padding: 10px 15px;
+			margin: 0;
+			font-size: 16px;
+			&[type="submit"] {
+				background-color: $green;
+				color: $white;
+				font-weight: 600;
+				padding: 20px 30px;
+				@extend %transition;
+				&:hover {
+					background-color: $green_alt;
+				}
+			}
+		}
+		p.login-remember {
+			label, input {
+				width: auto;
+				display: inline-block;
+			}
+		}
+	}
+}

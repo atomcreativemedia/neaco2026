@@ -1,0 +1,30 @@
+.page-builder {
+	@import 'sections/on-page-navigation';
+	@import 'sections/text-block';
+	@import 'sections/text-block-image';
+	@import 'sections/dual-image-block';
+	@import 'sections/video-embed';
+	@import 'sections/featured-content';
+	@import 'sections/featured-content-slider';
+	@import 'sections/options-showcase';
+	@import 'sections/info-slider';
+	@import 'sections/colour-range';
+	@import 'sections/featured-text';
+	@import 'sections/image-gallery';
+	@import 'sections/faqs';
+	@import 'sections/specifications';
+	@import 'sections/product-builder';
+	@import 'sections/call-to-action';
+	@import 'sections/usps';
+	@import 'sections/usps-rollover';
+	@import 'sections/case-studies';
+	@import 'sections/resources';
+	@import 'sections/render';
+	@import 'sections/nbs-frame';
+	@import 'sections/accreditations';
+	@import 'sections/contact';
+	
+	.container {
+		max-width: 1600px;
+	}
+}

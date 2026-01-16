@@ -1,0 +1,32 @@
+.news-page {
+	@include e('posts') {
+		@extend %pad;
+	}
+	@include post_item;
+	@include e('pagination') {
+		position: relative;
+		display: block;
+		font-size: 0;
+		span, a {
+			font-size: 14px;
+			display: inline-block;
+			margin-right: 4px;
+			padding: 10px 15px;
+			text-decoration: none;
+			background-color: $grey_light;
+			color: $steel;
+			@extend %transition;
+		}
+		a:hover {
+			background-color: $green;
+			color: $white;
+		}
+		.current{
+			background-color: $green;
+			color: $white;
+		}
+	}
+	@include e('noposts') {
+		
+	}
+}

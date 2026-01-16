@@ -1,0 +1,58 @@
+.newsletter {
+	@extend %pad;
+	background-color: $green;
+	
+	form {
+		.gfield_checkbox {
+			cursor: pointer;
+			.gchoice {
+				display: flex;
+			}
+			input {
+				cursor: pointer;
+				background-color: $white;
+				-webkit-appearance: none;
+				   -moz-appearance: none;
+				        appearance: none;
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				position: relative;
+				margin-right: 10px;
+				@include radius(4px);
+				flex: none;
+				&::after {
+					content: "\f00c";
+					font-family: $fontawesome_pro;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 100%;
+					text-align: center;
+					transform: translateY(-45%);
+					color: transparent;
+					font-size: 12px;
+					font-weight: 700;
+					@extend %transition;
+				}
+				&:checked::after {
+					color: $green;
+				}
+			}
+			label {
+				cursor: pointer;
+				font-weight: 400 !important;
+				font-size: 14px;
+				flex: 1;
+			}
+		}
+		button[type="submit"] span {
+			background-color: $white;
+			color: $steel !important;
+			span {
+				background-color: $steel;
+				color: $white !important;
+			}
+		}
+	}
+}

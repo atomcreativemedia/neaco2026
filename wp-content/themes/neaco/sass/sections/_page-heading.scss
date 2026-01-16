@@ -1,0 +1,210 @@
+.page-heading {
+	position: relative;
+	@include e('background-splash') {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: -1;
+		@include m('video') {
+			overflow: hidden;
+		}
+	}
+	
+	@include e('splash-item') {
+		height: 100%;
+		width: 100%;
+		display: block;
+		@include m('video') {
+			video {
+				@include video_splash;
+			}
+		}
+	}
+	
+	@include e('content') {
+		padding: $default_spacing_sm 0;
+		@include media-breakpoint-up(md) {
+			@include m('padding-small') {
+				padding: 50px 0;
+			}
+			@include m('padding-medium') {
+				padding: 70px 0;
+			}
+			@include m('padding-large') {
+				padding: 100px 0;
+			}
+			@include m('padding-xlarge') {
+				padding: 150px 0;
+			}
+		}
+		
+		@include e('nbs-button') {
+			margin-top: 1rem;
+			iframe {
+				width: 170px;
+				height: 45px;
+			}
+		}
+	}
+	
+	@include e('overlay') {
+		padding: $default_spacing_sm $default_spacing_xs;
+		@include media-breakpoint-up(md) {
+			padding: $default_spacing_sm;
+		}
+		@include media-breakpoint-up(lg) {
+			padding: $default_spacing_md;
+		}
+		
+		@include m('simple-heading') {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to right, rgba($black,0.8), rgba($black,0.3));
+			top: 0;
+			left: 0;
+		}
+		
+	}
+	
+	@include e('content-container') {
+		p,a,h1,h2,h3,h4,h5,h6,ul,ul li,ol,ol li {
+			color: $white;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			margin-bottom: 20px;
+		}
+		h1 {
+			font-size: 36px;
+			@include media-breakpoint-up(md) {
+				font-size: 52px;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: 56px;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: 60px;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 68px;
+			}
+			&.simple-heading {
+				margin: 0;
+				font-size: 26px;
+				@include media-breakpoint-up(lg) {
+					font-size: 30px;
+				}
+				@include media-breakpoint-up(xl) {
+					font-size: 40px;
+				}
+			}
+		}
+		h2 {
+			color: $green;
+			font-size: 32px;
+			@include media-breakpoint-up(md) {
+				font-size: 36px;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: 40px;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: 44px;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 48px;
+			}
+		}
+		h3 {
+			font-size: 22px;
+			@include media-breakpoint-up(md) {
+				font-size: 34px;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: 38px;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: 32px;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 26px;
+			}
+		}
+		h4 {
+			color: $green;
+			/*font-size: 24px;
+			@include media-breakpoint-up(md) {
+				font-size: 36px;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: 40px;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: 44px;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 52px;
+			}*/
+		}
+		/*h5 {
+			font-size: 20px;
+			@include media-breakpoint-up(md) {
+				font-size: 32px;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: 36px;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: 40px;
+			}
+			@include media-breakpoint-up(xxl) {
+				font-size: 48px;
+			}
+		}*/
+		h6 {
+			color: $green;
+			/*font-size: 18px;
+			@include media-breakpoint-up(md) {
+				font-size: 28px;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: 32px;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: 36px;
+			}*/
+		}
+		ul {
+			padding-left: 10px;
+			li {
+				margin-bottom: 5px;
+				list-style-type: none;
+				margin-left: 0;
+				padding-left: 27px;
+				position: relative;
+				&::before {
+					font-family: $fontawesome_pro;
+					content: '\f058';
+					color: $green;
+					position: absolute;
+					left: 0;
+					top: 1px;
+				}
+				
+				/*@include media-breakpoint-up(md) {
+					font-size: 18px;
+				}
+				@include media-breakpoint-up(xl) {
+					font-size: 20px;
+				}*/
+			}
+		}
+	}
+	
+	.slick-list,
+	.slick-track {
+		height: 100%;
+	}
+}

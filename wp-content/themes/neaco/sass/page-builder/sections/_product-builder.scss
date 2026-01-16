@@ -1,0 +1,274 @@
+@include e('product-builder') {
+	@extend %pad;
+	@include section_intro;
+	
+	@include e('main-content') {
+		
+	}
+	@include e('specs') {
+		
+	}
+	
+	@include e('slider-pager') { // the container
+		//@include make-container;
+	}
+	@include e('slider-dots') { // the ul
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		li {
+			list-style-type: none;
+			width: 46%;
+			display: inline-block;
+			margin: 5px;
+			button {
+				width: 100%;
+				text-align: center;
+				background-color: $grey_light;
+				color: $steel;
+				border: none;
+				@extend %transition;
+				text-transform: uppercase;
+				font-size: 14px;
+				padding: 6px;
+				&.disabled {
+					color: lighten($steel,50%);
+				}
+			}
+			&.slick-active {
+				button {
+					background-color: $green;
+				}
+			}
+		}
+		
+		@include media-breakpoint-up(md) {
+			text-align: center;
+			margin-bottom: 30px;
+			li {
+				width: auto;
+				margin: 0 15px 1rem;
+				button {
+					padding: 10px 20px;
+					font-size: 18px;
+				}
+			}
+		}
+		
+		.clear-btn {
+			font-size: 14px;
+			margin: 5px;
+			text-align: center;
+		}
+	}
+	
+	@include e('slider') {
+		
+	}
+	@include e('component-slide') {
+		
+	}
+	@include e('component-title') {
+		display: none;
+	}
+	
+	@include e('component-thumbs') {
+		
+	}
+	@include e('spec-category-thumb') {
+		margin-bottom: $default_spacing_xs;
+		position: relative;
+		border: 3px solid $white;
+		@include radius(10px);
+		overflow: hidden;
+		@extend %transition;
+		&.active, &:hover {
+			img {
+				opacity: 1;
+			}
+		}
+		&.active {
+			.spec-add {
+				display: inline-block;
+			}
+		}
+		&.selected {
+			border-color: $green_alt;
+			img {
+				opacity: 1;
+			}
+			.spec-add {
+				display: inline-block;
+				background-color: $green_alt;
+				color: $white;
+				&::after {
+					content: 'Added!';
+				}
+			}
+		}
+	}
+	@include e('spec-category-img') {
+		width: 100%;
+		margin-bottom: 10px;
+		cursor: pointer;
+		opacity: 0.4;
+		@extend %transition;
+		/*@include media-breakpoint-up(md) {
+			width: 120px;
+		}
+		@include media-breakpoint-up(xl) {
+			width: 150px;
+		}*/
+	}
+	
+	@include e('spec-image-title') {
+		font-size: 10px;
+		font-weight: 600;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%,0%);
+		background-color: rgba($steel,0.8);
+		color: $white;
+		text-align: center;
+		cursor: pointer;
+		padding: 3px;
+		width: 100%;
+		@include media-breakpoint-up(md) {
+			font-size: 12px;
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: 14px;
+			padding: 8px 5px;
+		}
+	}
+	
+	@include e('main-image') {
+		position: relative;
+		height: 240px;
+		background-color: $grey_light;
+		@include media-breakpoint-up(md) {
+			height: 260px;
+		}
+		@include media-breakpoint-up(lg) {
+			height: 400px;
+		}
+		@include media-breakpoint-up(xl) {
+			height: 500px;
+		}
+		@include media-breakpoint-up(xxl) {
+			height: 550px;
+		}
+	}
+	@include e('spec-add') {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: $green;
+		color: $steel;
+		padding: 5px 8px;
+		font-size: 10px;
+		font-weight: 600;
+		z-index: 500;
+		cursor: pointer;
+		display: none;
+		@extend %transition;
+		@include boxshadow;
+		@include radius(0 0 0 5px);
+		&:hover {
+			background-color: $green_alt;
+		}
+		&::after {
+			content: 'Add to Builder';
+		}
+		@include media-breakpoint-up(md) {
+			font-size: 12px;
+		}
+	}
+	@include e('desc-image') {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 240px;
+		z-index: 0;
+		//opacity: 0;
+		display: none;
+		//background-color: $white;
+		//@extend %transition;
+		&.show {
+			//opacity: 1;
+			display: block;
+		}
+		&.img-null {
+			background-color: transparent !important;
+		}
+		
+		@include media-breakpoint-up(md) {
+			height: 260px;
+		}
+		@include media-breakpoint-up(lg) {
+			height: 400px;
+		}
+		@include media-breakpoint-up(xl) {
+			height: 500px;
+		}
+		@include media-breakpoint-up(xxl) {
+			height: 550px;
+		}
+		
+		@include m('stanchion') {
+			z-index: 1;
+		}
+		@include m('connector') {
+			z-index: 3;
+		}
+		@include m('fixing') {
+			z-index: 2;
+		}
+		@include m('infill') {
+			z-index: 4;
+		}
+	}
+	@include e('download-pack') {
+		p.button {
+			font-size: 14px;
+			a {
+				padding: 10px 15px;
+				margin-right: 41px;
+				span {
+					width: 41px;
+					right: -41px;
+					&::before {
+						width: 41px;
+					}
+					&::after {
+						width: 41px;
+					}
+				}
+			}
+			
+			@include media-breakpoint-up(lg) {
+				font-size: 18px;
+				a {
+					padding: 20px 30px;
+					margin-right: 60px;
+					span {
+						width: 60px;
+						right: -60px;
+						&::before {
+							width: 60px;
+						}
+						&::after {
+							width: 60px;
+						}
+					}
+				}
+			}
+		}
+		
+		#unavailableNotification {
+			font-weight: 700;
+		}
+	}
+}

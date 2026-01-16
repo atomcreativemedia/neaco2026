@@ -1,0 +1,230 @@
+@mixin span_psuedos {
+	font-family: $fontawesome_pro;
+	content: "\f054";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 52px;
+	text-align: center;
+	@extend %transition;
+	@include media-breakpoint-up(lg) {
+		width: 60px;
+	}
+}
+%span_psuedos { @include span_psuedos; }
+
+@mixin default_solid {
+	display: inline-block;
+	font-weight: 300;
+	font-size: 16px; //this 18
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	a, .button-span {
+		background-color: $steel;
+		color: $white !important;
+		text-decoration: none;
+		padding: 14px 18px;
+		position: relative;
+		display: block;
+		margin-right: 52px;
+		@extend %transition;
+		span {
+			height: 100%;
+			width: 52px;
+			background-color: $green;
+			color: $steel;
+			position: absolute;
+			top: 0;
+			right: -52px;
+			overflow: hidden;
+			&::before {
+				@extend %span_psuedos;
+				left: -100%;
+			}
+			&::after {
+				@extend %span_psuedos;
+				left: 0;
+			}
+		}
+		&:hover {
+			span {
+				&::before {
+					left: 0;
+				}
+				&::after {
+					left: 100%;
+				}
+			}
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		font-size: 18px;
+		a, .button-span {
+			padding: $default_button_padding;
+			margin-right: 60px;
+			span {
+				width: 60px;
+				right: -60px;
+			}
+		}
+	}
+}
+%default_solid { @include default_solid; }
+
+.button {
+	@extend %default_solid;
+	&.grey-green {
+		a, .button-span {
+			background-color: $steel;
+			color: $green !important;
+			cursor: pointer;
+			span {
+				background-color: $green;
+				&::before { color: $steel; }
+				&::after  { color: $steel; }
+			}
+		}
+	}
+	&.green-grey {
+		a, .button-span {
+			background-color: $green;
+			color: $steel !important;
+			span {
+				background-color: $steel;
+				&::before { color: $green; }
+				&::after  { color: $green; }
+			}
+		}
+	}
+	&.white-grey {
+		a, .button-span {
+			background-color: $white;
+			color: $steel !important;
+			span {
+				background-color: $steel;
+				&::before { color: $white; }
+				&::after  { color: $white; }
+			}
+		}
+	}
+	&.grey-white {
+		a, .button-span {
+			background-color: $steel;
+			color: $white !important;
+			span {
+				background-color: $white;
+				&::before { color: $steel; }
+				&::after  { color: $steel; }
+			}
+		}
+	}
+	&.white-green {
+		a, .button-span {
+			background-color: $white;
+			color: $steel !important;
+			span {
+				background-color: $green;
+				&::before { color: $steel; }
+				&::after  { color: $steel; }
+			}
+		}
+	}
+	&.green-white {
+		a, .button-span {
+			background-color: $green;
+			color: $steel !important;
+			span {
+				background-color: $white;
+				&::before { color: $steel; }
+				&::after  { color: $steel; }
+			}
+		}
+	}
+	@include m('cta') {
+		display: inline-block;
+		font-weight: 600;
+		font-size: 18px;
+		margin: 0;
+		text-align: center;
+		display: block;
+		a {
+			background-color: $green;
+			color: $white !important;
+			text-decoration: none;
+			padding: 15px 30px;
+			position: relative;
+			display: block;
+			cursor: pointer;
+			@extend %transition;
+			@extend %radius;
+			
+			@include media-breakpoint-up(md) {
+				padding: 15px 100px;
+			}
+		}
+		&.grey-green {
+			a {
+				background-color: $steel;
+				color: $green !important;
+				&:hover {
+					background-color: $steel_alt;
+				}
+			}
+		}
+		&.green-grey {
+			a {
+				background-color: $green;
+				color: $steel !important;
+				&:hover {
+					background-color: $green_alt;
+				}
+			}
+		}
+		&.white-grey {
+			a {
+				background-color: $white;
+				color: $steel !important;
+				&:hover {
+					background-color: $grey_light;
+				}
+			}
+		}
+		&.grey-white {
+			a {
+				background-color: $steel;
+				color: $white !important;
+				&:hover {
+					background-color: $steel_alt;
+				}
+			}
+		}
+		&.white-green {
+			a {
+				background-color: $white;
+				color: $green !important;
+				&:hover {
+					background-color: $grey_light;
+				}
+			}
+		}
+		&.green-white {
+			a {
+				background-color: $green;
+				color: $white !important;
+				&:hover {
+					background-color: $green_alt;
+				}
+			}
+		}
+		@include m('reduce') {
+			@include media-breakpoint-up(md) {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+button.button {
+	@extend %pmreset;
+	border: none;
+}

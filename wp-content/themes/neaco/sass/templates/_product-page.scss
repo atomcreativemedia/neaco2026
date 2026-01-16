@@ -1,0 +1,7 @@
+.product-page {
+	@include page_branding('default');
+	@include page_branding('flooring');
+	@include page_branding('industrial');
+	@include page_branding('balconies');
+	@include page_branding('bathing');
+}

@@ -1,0 +1,80 @@
+$white:			#FFFFFF;
+$black:			#000000;
+
+$grey_light:	#EFF2F5;
+$grey_med:		#B5BBBF;
+$grey_dark:		#707070;
+
+$green:			#AAC642;
+	$green_alt:	darken($green,5%);
+$steel:			#3B4752;
+	$steel_alt:	darken($steel,5%);
+
+$purple:		#592D5E;
+
+$flooring: 		#94969A;
+$industrial: 	#CCB647;
+$balconies: 	#E25098;
+$bathing: 		#2C7DAA;
+
+$default_spacing_xs:	30px;
+$default_spacing_sm:	50px;
+$default_spacing_md:	70px;
+$default_spacing_lg:	100px;
+
+$default_border_radius:	4px;
+
+$default_transition:	all .25s ease;
+
+$default_background_attachment:	scroll;
+$default_background_repeat:		no-repeat;
+$default_background_color:		transparent;
+$default_background_size:		cover;
+$default_background_position:	center center;
+
+$default_button_padding: 20px 30px;
+
+$default_font:	agenda, sans-serif;
+	// 100 thin
+	// 300 light
+	// 600 semibold
+	
+$featured_font:	agenda, sans-serif;
+	// 100 thin
+	// 300 light
+	// 600 semibold
+
+$fontawesome_pro: 'Font Awesome 6 Pro';
+$fontawesome_brands: 'Font Awesome 6 Brands';
+$fontawesome_duo: 'Font Awesome 6 Duotone';
+
+$default_font_style:	normal;
+$default_font_variant:	normal;
+$default_font_weight:	300;
+$default_font_size:		18px;
+$default_font_family:	$default_font;
+$font_stack:
+	$default_font_style
+	$default_font_variant
+	$default_font_weight
+	$default_font_size
+	$default_font_family;
+
+$h1_sm: 54px;	$h1_md: 64px;	$h1_lg: 64px;
+$h2_sm: 34px;	$h2_md: 42px;	$h2_lg: 42px;
+$h3_sm: 28px;	$h3_md: 34px;	$h3_lg: 34px;
+$h4_sm: 22px;	$h4_md: 28px;	$h4_lg: 28px;
+$h5_sm: 18px;	$h5_md: 22px;	$h5_lg: 22px;
+$h6_sm: 18px;	$h6_md: 22px;	$h6_lg: 22px;
+
+$heading_font_style:	normal;
+$heading_font_variant:	normal;
+$heading_font_weight:	300;
+$heading_font_size:		$h1_sm;
+$heading_font_family:	$featured_font;
+$heading_font_stack:
+	$heading_font_style
+	$heading_font_variant
+	$heading_font_weight
+	$heading_font_size
+	$heading_font_family;

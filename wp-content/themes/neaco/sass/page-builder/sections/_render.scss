@@ -1,0 +1,59 @@
+@mixin render_buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+	.button {
+		font-size: 14px;
+		margin: 0;
+		a {
+			padding: 10px 14px;
+			margin-right: 41px;
+			span {
+				width: 41px;
+				right: -41px;
+				&::before {
+					width: 41px;
+				}
+				&::after {
+					width: 41px;
+				}
+			}
+		}
+		@include media-breakpoint-up(md) {
+			font-size: 16px;
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: 18px;
+		}
+	}
+}
+
+@include e('render') {
+	@include e('content') {
+		&.content-colour {
+			@include colour_control;
+		}
+	}
+	@include e('content-buttons') {
+		@include render_buttons;
+		justify-content: start;
+		padding-top: 20px;
+	}
+	@include e('wrapper') {
+		position: relative;
+		padding-bottom: 60%;
+		height: 0;
+		iframe {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+		}
+		@include media-breakpoint-up(xl) {
+			padding-bottom: 75%;
+		}
+	}
+}

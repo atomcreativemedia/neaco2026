@@ -1,0 +1,85 @@
+.team-page {
+	@include e('departments') {
+		@extend %pad;
+	}
+	@include e('department') {
+		margin-bottom: 30px;
+	}
+	@include e('department-name') {
+		h2 {
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			span {
+				position: relative;
+				&::after {
+					position: absolute;
+					bottom: -20px;
+					left: 0;
+					content: '';
+					width: 50%;
+					height: 1px;
+					background-color: $green;
+				}
+			}
+		}
+	}
+	
+	@include e('department-profiles') {
+		
+	}
+	@include e('profile') {
+		margin-bottom: $default_spacing_sm;
+		@include e('img-holder') {
+			display: block;
+			position: relative;
+			width: 100%;
+			margin-bottom: 20px;
+			@include media-breakpoint-up(md) {
+				width: 80%;
+			}
+		}
+		@include e('img') {
+			width: 100%;
+			height: 100%;
+			@include m('secondary') {
+				
+			}
+			@include m('primary') {
+				opacity: 1;
+				@extend %transition;
+				&:hover {
+					opacity: 0;
+				}
+			}
+		}
+		@include e('name') {
+			
+		}
+		@include e('position-title') {
+			font-weight: 600;
+			color: $green;
+			font-size: 16px;
+		}
+		@include e('bio') {
+			font-size: 16px;
+		}
+		@include e('contact') {
+			
+		}
+		@include e('contact-icon') {
+			a {
+				color: $green;
+				@extend %transition;
+				&:hover {
+					color: $steel;
+				}
+			}
+			@include m('phone') {
+				
+			}
+			@include m('email') {
+				
+			}
+		}
+	}
+}

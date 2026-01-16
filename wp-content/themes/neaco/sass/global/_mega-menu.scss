@@ -1,0 +1,99 @@
+li.has-mega-menu {
+	@include media-breakpoint-up(lg) {
+		position: initial !important;
+	}
+	.mega-menu { // the main container
+		position: absolute;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		
+		display: none;
+		
+		@include media-breakpoint-up(lg) {
+			width: 100%;
+			left: 0;
+			top: unset;
+			background-color: $white;
+		}
+		
+		@include e('inner') {
+			padding: 30px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+		@include e('cards') {
+			display: flex;
+			flex-direction: row;
+			gap: 20px 10px;
+			flex-wrap: wrap;
+			margin-top: 20px;
+		}
+		.mega-card { // the "a" tag
+			
+			flex: 0 1 calc(50% - 5px);
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			
+			@include media-breakpoint-up(lg) {
+				flex-basis: calc(25% - 5px);
+			}
+			
+			@include e('media') {
+				position: relative;
+				aspect-ratio: 4 / 3;
+				overflow: hidden;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					display: block;
+				}
+			}
+			@include e('body') {
+				
+			}
+			@include e('title') {
+				font-size: 18px;
+				font-weight: 600;
+			}
+			@include e('range') {
+				font-size: 16px;
+				color: $green;
+				font-weight: 300;
+			}
+		}
+		
+		@include e('desc') {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			& * {
+				color: $white;
+				margin-bottom: 0;
+			}
+			
+			@include media-breakpoint-up(lg) {
+				& * {
+					color: $steel;
+				}
+			}
+		}
+		
+		&.active {
+			display: block;
+		}
+	}
+	
+	@include media-breakpoint-up(md) {
+		&:hover {
+			.mega-menu {
+				display: block;
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+@include e('info-slider') {
+	@extend %pad;
+	position: relative;
+	
+	@include section_intro;
+	
+	@include e('info-slider-container') {
+		position: relative;
+		.slick-arrow {
+			border: none;
+			background-color: rgba(0,0,0,0.5);
+			position: absolute;
+			top: 50%;
+			font-size: 0;
+			transform: translateY(-50%);
+			z-index: 100;
+			padding: 15px;
+			&::before {
+				font-family: $fontawesome_pro;
+				font-size: 18px;
+				color: $white;
+			}
+			@include media-breakpoint-up(md) {
+				&::before {
+					font-size: 28px;
+				}
+			}
+			&.slick-prev {
+				left: -10px;
+				@include media-breakpoint-up(xl) {
+					left: -45px;
+				}
+				&::before {
+					content: '\f053';
+				}
+			}
+			&.slick-next {
+				right: -10px;
+				@include media-breakpoint-up(xl) {
+					right: -45px;
+				}
+				&::before {
+					content: '\f054';
+				}
+			}
+		}
+	}
+	
+	@include e('slide') {
+		display: block;
+		width: 100%;
+		margin: 0 10px;
+		padding: $default_spacing_lg $default_spacing_xs;
+		@include media-breakpoint-up(md) {
+			padding: 200px 0;
+			margin: 0 20px;
+		}
+	}
+	@include e('slide-overlay') {
+		padding: 20px;
+		@include media-breakpoint-up(md) {
+			padding: 50px;
+		}
+	}
+	@include e('slide-content') {
+		@include featured_content_control;
+		@include colour_control;
+	}
+}

@@ -1,0 +1,34 @@
+@include e('image-gallery') {
+	//@extend %pad;
+	
+	@include section_intro;
+	
+	@include e('image') {
+		margin-bottom: 20px;
+		border: 5px solid $white;
+		@extend %transition;
+		&:hover {
+			border: 10px solid $white;;
+		}
+	}
+	@include e('anchor') {
+		height: 100%;
+		width: 100%;
+		display: block;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	@include e('gallery-image-container') {
+		height: 100%;
+		width: 100%;
+		display: block;
+	}
+}
+
+.modula-gallery .modula-item-content a {
+	cursor: default !important;
+}
+.modula-gallery .modula-item:hover .modula-item-content .pic {
+	opacity: 1 !important;
+}

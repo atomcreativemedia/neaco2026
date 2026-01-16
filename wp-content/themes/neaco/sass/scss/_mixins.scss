@@ -1,0 +1,858 @@
+@mixin e($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+@mixin m($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
+@mixin radius($radius...) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+			border-radius: $radius;
+}
+
+@mixin boxshadow($horizontal:0px, $vertical:3px, $blur:6px, $spread:0px, $colour:rgba($black,0.15)) {
+	   -moz-box-shadow: $horizontal $vertical $blur $spread $colour;
+	-webkit-box-shadow: $horizontal $vertical $blur $spread $colour;
+			box-shadow: $horizontal $vertical $blur $spread $colour;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+		-ms-transition: $transition;
+		 -o-transition: $transition;
+			transition: $transition;
+}
+
+@mixin transformX($transformX...) {
+	-ms-transform: translateX($transformX);
+	-webkit-transform: translateX($transformX);
+	transform: translateX($transformX);
+}
+@mixin transformY($transformY...) {
+	-ms-transform: translateY($transformY);
+	-webkit-transform: translateY($transformY);
+	transform: translateY($transformY);
+}
+
+@mixin animation_name($animation_name...) {
+	-webkit-animation-name: $animation_name;
+	-moz-animation-name: $animation_name;
+	-o-animation-name: $animation_name;
+	animation-name: $animation_name;
+}
+
+@mixin animation_duration($animation_duration...) {
+	-webkit-animation-duration: $animation_duration;
+	-moz-animation-duration: $animation_duration;
+	-ms-animation-duration: $animation_duration;
+	-o-animation-duration: $animation_duration;
+	animation-duration: $animation_duration;
+}
+
+@mixin animation_iteration_count($animation_iteration_count...) {
+	animation-iteration-count: $animation_iteration_count;
+	-moz-animation-iteration-count: $animation_iteration_count;
+	-webkit-animation-iteration-count: $animation_iteration_count;
+}
+@mixin animation_fill_mode($animation_fill_mode...) {
+	-webkit-animation-fill-mode: $animation_fill_mode;
+	-moz-animation-fill-mode: $animation_fill_mode;
+	-ms-animation-fill-mode: $animation_fill_mode;
+	-o-animation-fill-mode: $animation_fill_mode;
+	animation-fill-mode: $animation_fill_mode;
+}
+
+@mixin pad {
+	padding: $default_spacing_sm 0;
+	@include media-breakpoint-up(md) {
+		padding: $default_spacing_md 0;
+	}
+	@include media-breakpoint-up(lg) {
+		padding: $default_spacing_lg 0;
+	}
+}
+@mixin pad-bottom {
+	padding-bottom: $default_spacing_sm;
+	@include media-breakpoint-up(md) {
+		padding-bottom: $default_spacing_md;
+	}
+	@include media-breakpoint-up(lg) {
+		padding-bottom: $default_spacing_lg;
+	}
+}
+@mixin pad-top {
+	padding-top: $default_spacing_sm;
+	@include media-breakpoint-up(md) {
+		padding-top: $default_spacing_md;
+	}
+	@include media-breakpoint-up(lg) {
+		padding-top: $default_spacing_lg;
+	}
+}
+
+@mixin pmreset {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin bg-img {
+	background-attachment: $default_background_attachment;
+	background-repeat: $default_background_repeat;
+	background-color: $default_background_color;
+	background-size: $default_background_size;
+	background-position: $default_background_position;
+}
+
+@mixin fal {
+	font-family: $fontawesome_pro;
+	font-weight: 300;
+}
+@mixin far {
+	font-family: $fontawesome_pro;
+	font-weight: 400;
+}
+@mixin fas {
+	font-family: $fontawesome_pro;
+	font-weight: 900;
+}
+@mixin fab {
+	font-family: $fontawesome_brands;
+	font-weight: 400;
+}
+
+@mixin top50 {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin featured_content_control {
+	p {
+		font-size: 18px;
+		@include media-breakpoint-up(md) {
+			font-size: 20px;
+		}
+	}
+	h1 {
+		font-size: 44px;
+		@include media-breakpoint-up(md) {
+			font-size: 64px;
+		}
+	}
+	h2 {
+		font-size: 38px;
+		@include media-breakpoint-up(md) {
+			font-size: 58px;
+		}
+	}
+	h3 {
+		font-size: 34px;
+		@include media-breakpoint-up(md) {
+			font-size: 52px;
+		}
+	}
+	h4 {
+		font-size: 30px;
+		@include media-breakpoint-up(md) {
+			font-size: 46px;
+		}
+	}
+	h5 {
+		font-size: 26px;
+		@include media-breakpoint-up(md) {
+			font-size: 40px;
+		}
+	}
+	h6 {
+		font-size: 20px;
+		@include media-breakpoint-up(md) {
+			font-size: 34px;
+		}
+	}
+	/*h1,h2 {
+		strong {
+			font-weight: 300;
+		}
+	}
+	h3,h4,h5,h6 {
+		strong {
+			font-weight: 600;
+		}
+	}*/
+	h4,h6 {
+		color: $green
+	}
+	h5,h6 {
+		text-transform: uppercase;
+	}
+}
+
+@mixin colour_control {
+	@include m('dark') {
+		p, ol li, ul li, h1, h2, h3, h4, h5, h6 {
+			color: $steel;
+		}
+		p a {
+			color: $steel;
+		}
+	}
+	@include m('light') {
+		p, ol li, ul li, h1, h2, h3, h4, h5, h6 {
+			color: $grey_light;
+		}
+		p a {
+			color: $grey_light;
+		}
+	}
+	@include m('black') {
+		p, ol li, ul li, h1, h2, h3, h4, h5, h6 {
+			color: $black;
+		}
+		p a {
+			color: $black;
+		}
+	}
+	@include m('white') {
+		p, ol li, ul li, h1, h2, h3, h4, h5, h6 {
+			color: $white;
+		}
+		p a {
+			color: $white;
+		}
+	}
+}
+
+@mixin section_intro {
+	@include e('intro') {
+		margin-bottom: $default_spacing_md;
+		@include colour_control;
+	}
+}
+
+@mixin accreditations_control {
+	@include e('items') {
+		
+	}
+	@include e('item') {
+		margin: 0 20px;
+	}
+	@include e('item-logo') {
+		max-height: 50px;
+		@include media-breakpoint-up(md) {
+			max-width: 300px;
+			max-height: 70px;
+		}
+	}
+}
+
+@mixin drawer_control {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2000;
+	height: 0;
+	width: 100%;
+	
+	@include e('layer-1') {
+		height: calc(100vh);
+		position: absolute;
+		top: 0px;
+		overflow: hidden;
+		@extend %transition;
+	}
+	
+	@include e('main-container') {
+		padding: 5%;
+		height: 100%;
+		position: relative;
+	}
+	
+	@include e('header') {
+		font-size: 0;
+		height: 10%;
+	}
+	@include e('logo-container') {
+		font-size: 22px;
+	}
+	@include e('logo') {
+		
+	}
+	@include e('close') {
+		font-size: 22px;
+		text-align: right;
+		span i {
+			cursor: pointer;
+			@extend %transition;
+		}
+		
+		@include media-breakpoint-up(md) {
+			font-size: 28px;
+		}
+	}
+	@include e('body') {
+		position: relative;
+		overflow: scroll;
+	}
+	@include e('footer') {
+		padding: $default_spacing_xs 0 0;
+		font-size: 18px;
+		font-weight: 100;
+		a {
+			text-decoration: none;
+			@extend %transition;
+		}
+	}
+}
+	
+// Nav Drawer Lists and List Items
+@mixin list {
+	@extend %pmreset;
+	position: absolute;
+	width: 100%;
+	padding: $default_spacing_xs;
+	display: block;
+}
+@mixin list_item {
+	margin: 0 0 15px 0;
+	list-style-type: none;
+	font-weight: 100;
+	font-size: 18px;
+	width: 100%;
+	display: block;
+	a {
+		color: $white;
+		@extend %transition;
+		text-decoration: none;
+		&:hover {
+			color: $green;
+		}
+	}
+	&.current-menu-item a,
+	&.current_page_item a {
+		text-decoration: none;
+		color: $green;
+	}
+	&.current-menu-item ul li a,
+	&.current_page_item ul li a {
+		text-decoration: none;
+		color: $green;
+	}
+}
+@mixin child_click_i {
+	color: $white;
+	cursor: pointer;
+	display: block;
+	@extend %transition;
+	&:hover {
+		color: $green;
+	}
+}
+
+@mixin drawer_menu_control {
+	ul {
+		@include list;
+		left: 0;
+		@extend %transition;
+		&.swiped {
+			left: -100%;
+		}
+		li {
+			@include list_item;
+			.child-click {
+				position: absolute;
+				right: $default_spacing_xs;
+				margin-top: 5px;
+				i {
+					@include child_click_i;
+				}
+			}
+			&.parent-click {
+				button {
+					padding: 0;
+					background-color: transparent;
+					border: none;
+				}
+				i {
+					@include child_click_i;
+				}
+			}
+			button.parent-click {
+				padding: 0;
+				background-color: transparent;
+				border: none;
+				i {
+					@include child_click_i;
+				}
+			}
+		}
+		&.sub-menu {
+			display: none;
+			left: 100%;
+			top: 0;
+			&.active {
+				display: block;
+			}
+		}
+	}
+}
+
+@mixin post_meta {
+	@include e('post-meta') {
+		margin-bottom: 20px;
+	}
+	@include e('post-author-date') {
+		font-size: 14px;
+		margin-bottom: 0;
+	}
+	@include e('post-author') {
+		margin-right: 10px;
+	}
+	@include e('post-date') {
+		
+	}
+	@include e('post-categories') {
+		font-size: 0px;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+	@include e('post-category') {
+		font-size: 14px;
+		color: $green;
+		text-decoration: none;
+		@extend %transition;
+		&:hover {
+			color: $green_alt;
+		}
+		&::after {
+			content: "/";
+			margin: 0 4px;
+		}
+		
+		&:last-child {
+			&::after {
+				content: none;
+				margin: 0;
+			}
+		}
+	}
+}
+
+@mixin post_item {
+	@include e('post') {
+		margin-bottom: $default_spacing_md;
+	}
+	@include e('post-image-container') {
+		height: 260px;
+		margin-bottom: 30px;
+		a {
+			height: 100%;
+			width: 100%;
+			display: block;
+		}
+	}
+	@include e('post-image') {
+		height: 100%;
+		width: 100%;
+		display: block;
+	}
+	@include e('post-content') {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	@include e('post-title') {
+		margin-bottom: 0;
+		a {
+			text-decoration: none;
+			color: $steel;
+			@extend %transition;
+			&:hover {
+				color: $green;
+			}
+		}
+	}
+	@include post_meta;
+	@include e('post-excerpt') {
+		margin-bottom: $default_spacing_xs - 20;
+		.moretag {
+			@extend %transition;
+		}
+	}
+	@include e('post-readmore') {
+		
+	}
+}
+
+@mixin career_heading {
+	h2,h3 {
+		margin: 0;
+		a {
+			color: $steel;
+			text-decoration: none;
+			@extend %transition;
+			&:hover {
+				color: $green;
+			}
+		}
+	}
+}
+@mixin career_options {
+	color: $green;
+	font-size: 16px;
+	@include media-breakpoint-up(md) {
+		font-size: 18px;
+	}
+	
+	&::after {
+		content: "/";
+		margin: 0 5px;
+	}
+	
+	&:last-child {
+		&::after {
+			content: none;
+			margin: 0;
+		}
+	}
+}
+
+@mixin departments_list {
+	@include e('department') {
+		display: block;
+		margin: $default_spacing_xs 0;
+		h5 { font-weight: 700; }
+		p {
+			margin-bottom: 10px;
+			position: relative;
+			padding-left: 30px;
+			a {
+				color: $steel;
+				text-decoration: none;
+				@extend %transition;
+				&:hover {
+					color: $green;
+				}
+			}
+			i {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				color: $green;
+			}
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@mixin video_splash {
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
+
+@mixin merchants {
+	@include e('merchants') {
+		@extend %pad;
+		background-color: $grey_light;
+		@include e('intro') {
+			margin-bottom: $default_spacing_sm;
+		}
+		@include e('merchant-item') {
+			background-color: $white;
+			padding: 30px;
+			@include radius(20px);
+			@include boxshadow;
+		}
+		@include e('merchant-heading') {
+			font-size: 24px;
+			color: $green;
+		}
+		@include e('merchant-bname') {
+			font-size: 22px;
+		}
+		@include e('item-logo-link') {
+			display: inline-block;
+		}
+		@include e('item-logo') {
+			margin: 20px 0;
+			max-width: 150px;
+			max-height: 85px;
+			@include media-breakpoint-up(sm) {
+				max-width: 200px;
+			}
+		}
+		span {
+			i {
+				display: inline-block;
+				font-size: 18px;
+				width: 24px;
+			}
+		}
+	}
+}
+
+%radius { @include radius($default_border_radius); }
+%transition { @include transition($default_transition); }
+%pad { @include pad; }
+%pad-bottom { @include pad-bottom; }
+%pad-top { @include pad-top; }
+%pmreset { @include pmreset; }
+%bg-img { @include bg-img; }
+
+%fal { @include fal; }
+%far { @include far; }
+%fas { @include fas; }
+%fab { @include fab; }
+
+@mixin page_branding($selected_brand) {
+	$brand_color: null;
+	$contrast_color: null;
+	@if $selected_brand == 'flooring' {
+		$brand_color: $flooring;
+		$contrast_color: $white;
+	} @else if $selected_brand == 'industrial' {
+		$brand_color: $industrial;
+		$contrast_color: $white;
+	} @else if $selected_brand == 'balconies' {
+		$brand_color: $balconies;
+		$contrast_color: $white;
+	} @else if $selected_brand == 'bathing' {
+		$brand_color: $bathing;
+		$contrast_color: $white;
+	} @else {
+		$brand_color: $green;
+		$contrast_color: $steel;
+	}
+	
+	@if $selected_brand != 'default' {
+		&.page-branding--#{$selected_brand} {
+			.page-heading {
+				h2, h4, h6 {
+					color: $brand_color;
+				}
+			}
+			span.fancy-heading::before {
+				background-color: rgba($brand_color,0.45);
+			}
+			.page-builder__faqs__faq-q:hover {
+				color: $brand_color;
+				/*.plus-minus-toggle {
+					&::before {
+						background: $brand_color !important;
+					}
+					&::after {
+						background: $brand_color !important;
+					}
+				}*/
+			}
+			.page-builder__specifications__slider-dots li.slick-active button {
+				background-color: $brand_color;
+				color: $contrast_color;
+			}
+			.page-builder__specifications__spec-desc {
+				background-color: $brand_color;
+				color: $contrast_color;
+			}
+			.page-builder__usps__usp-icon {
+				color: $brand_color;
+				
+				@include m('colour-dark') {
+					color: $steel;
+				}
+				
+				@include m('colour-light') {
+					color: $grey_light;
+				}
+				
+				@include m('colour-black') {
+					color: $black;
+				}
+				
+				@include m('colour-white') {
+					color: $white;
+				}
+			}
+			.page-builder__contact__department p i {
+				color: $brand_color;
+			}
+			.page-builder__contact__form {
+				p a {
+					color: $brand_color;
+				}
+				button[type=submit] .button-span {
+					color: $white !important;
+					span {
+						background-color: $brand_color !important;
+						&::before {
+							color: $white !important;
+						}
+						&::after {
+							color: $white !important;
+						}
+					}
+				}
+			}
+			p.button {
+				&.grey-green {
+					a {
+						color: $white !important;
+						span {
+							background-color: $brand_color !important;
+							&::before {
+								color: $contrast_color !important;
+							}
+							&::after {
+								color: $contrast_color !important;
+							}
+						}
+					}
+				}
+				&.green-grey {
+					a {
+						background-color: $brand_color;
+						color: $contrast_color !important;
+						span {
+							&::before {
+								color: $white !important;
+							}
+							&::after {
+								color: $white !important;
+							}
+						}
+					}
+				}
+				&.white-green {
+					a span {
+						background-color: $brand_color;
+						&::before {
+							color: $contrast_color !important;
+						}
+						&::after {
+							color: $contrast_color !important;
+						}
+					}
+				}
+				&.green-white {
+					a {
+						background-color: $brand_color;
+						color: $contrast_color !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin onpage_nav {
+	@include e('nav-container') {
+		background-color: #D9D9D9;
+		padding: 10px 0;
+	}
+	@include e('nav') {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	@include e('nav-open') {
+		cursor: pointer;
+		text-align: center;
+		span {
+			position: relative;
+			padding-right: 25px;
+			&::after {
+				content: '\f078';
+				font-family: $fontawesome_pro;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%) rotate(0deg);
+				@extend %transition;
+			}
+		}
+		&.open {
+			span {
+				&::after {
+					transform: translateY(-50%) rotate(90deg);
+					@extend %transition;
+				}
+			}
+		}
+		
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+	@include e('nav-items') {
+		max-height: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		@extend %transition;
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+		&.open {
+			max-height: 1000px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			justify-content: space-between;
+			max-height: 1000px;
+			height: auto;
+			flex-wrap: wrap;
+			column-gap: 30px;
+			&.open {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+	@include e('nav-item') {
+		list-style-type: none;
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+		a {
+			color: $steel;
+			text-decoration: none;
+			display: inline-block;
+			border-bottom: 1px dotted $steel;
+			@extend %transition;
+		}
+		@include media-breakpoint-up(lg) {
+			font-size: 18px;
+			width: auto;
+			white-space: nowrap;
+			a {
+				border-bottom: none;
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: 20px;
+		}
+		
+		@include media-breakpoint-up(xxl) {
+			font-size: 24px;
+		}
+	}
+}

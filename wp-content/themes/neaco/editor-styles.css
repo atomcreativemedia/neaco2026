@@ -1,0 +1,72 @@
+h1, h2, h3, h4, h5, h6 {
+  font: normal normal 100 54px agenda, sans-serif;
+  margin-bottom: 20px;
+}
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+  font-weight: 300;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #AAC642;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h2 {
+  font-size: 44px;
+}
+
+h3 {
+  font-size: 34px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 22px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+p, ul li, ol li {
+  font: normal normal 300 18px agenda, sans-serif;
+}
+p a, ul li a, ol li a {
+  color: #AAC642;
+  text-decoration: none;
+}
+
+span.fancy-heading {
+  position: relative;
+  z-index: 0;
+}
+span.fancy-heading::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  background-color: rgba(170, 198, 66, 0.45);
+  width: 30px;
+  height: 30px;
+  z-index: -1;
+}
+
+span.heading-underline {
+  display: inline-block;
+}
+span.heading-underline::after {
+  content: "";
+  width: 50%;
+  height: 1px;
+  background-color: #3B4752;
+  display: block;
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=editor-styles.css.map */

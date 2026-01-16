@@ -1,0 +1,104 @@
+@mixin option_name_company_control {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	transform: translateY(-50%);
+}
+@mixin outside_position_control {
+	position: relative;
+	transform: none;
+	top: 0;
+	h6 {
+		font-weight: 600;
+		margin: 10px 0;
+	}
+}
+
+@include e('colour-range') {
+	@extend %pad;
+	
+	@include section_intro;
+	
+	@include e('range-container') {
+		
+	}
+	@include e('range-option') {
+		position: relative;
+		@include radius(20px);
+		overflow: hidden;
+		margin: 15px;
+		//@include transition(all .75s ease);
+		@include media-breakpoint-up(md) {
+			margin: 5px;
+			/*&:hover {
+				@include radius(200px);
+			}*/
+		}
+	}
+	@include e('option-swatch') {
+		position: relative;
+		@include colour_control;
+		h6 {
+			margin-bottom: 0;
+			font-weight: 600;
+		}
+	}
+	@include e('option-content') {
+		@include m('inside') {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+			transform: translateY(-50%);
+			
+			.colour-option-name {
+				padding: 10px;
+			}
+			.colour-option-ral {
+				padding: 10px;
+			}
+			
+			@include media-breakpoint-up(md) {
+				height: 100%;
+				position: relative;
+				transform: none;
+				top: 0;
+				&:hover {
+					cursor: pointer;
+					.colour-option-name {
+						top: -20%;
+					}
+					.colour-option-ral {
+						top: 50%;
+					}
+				}
+			}
+		}
+		@include m('outside') {
+			position: relative;
+			.colour-option-name {
+				@include outside_position_control;
+			}
+			.colour-option-ral {
+				@include outside_position_control;
+			}
+		}
+		@include colour_control;
+	}
+	@include e('option-name') {
+		@extend %transition;
+	}
+	@include e('option-ral') {
+		@extend %transition;
+	}
+	@include media-breakpoint-up(md) {
+		@include e('option-name') {
+			@include option_name_company_control;
+			top: 50%;
+		}
+		@include e('option-ral') {
+			@include option_name_company_control;
+			top: 120%;
+		}
+	}
+}

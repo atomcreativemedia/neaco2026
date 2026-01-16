@@ -1,0 +1,19 @@
+.main-article {
+	@extend %pad;
+	
+	:where(img[class*=wp-image-]) {
+		@include media-breakpoint-up(md) {
+			max-width: 100%;
+		}
+		&.half-width {
+			max-width: 50%;
+			@include media-breakpoint-up(md) {
+				max-width: 50%;
+			}
+		}
+	}
+	
+	@include m('post-type-post') {
+		padding-top: 0;
+	}
+}

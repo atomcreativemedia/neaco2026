@@ -1,0 +1,114 @@
+.news-post {
+	@include e('page-heading') {
+		padding: 50px 0 0;
+	}
+	@include e('header-back') {
+		margin: 0;
+		font-size: 26px;
+		@include media-breakpoint-up(lg) {
+			font-size: 30px;
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: 40px;
+		}
+		a {
+			text-decoration: none;
+			&:hover {
+				color: $green;
+			}
+		}
+	}
+	@include e('post-leading-image') {
+		margin: 0 0 30px;
+	}
+	
+	@include e('post-title') {
+		font-size: 26px;
+		font-weight: 600;
+		@include media-breakpoint-up(lg) {
+			font-size: 30px;
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: 52px;
+		}
+	}
+	
+	@include e('post-header') {
+		
+	}
+	@include e('post-date') {
+		font-size: 16px;
+		margin-bottom: 0;
+	}
+	@include e('post-utilities') {
+		
+	}
+	@include e('post-share') {
+		
+	}
+	@include e('post-share-list') {
+		@extend %pmreset;
+	}
+	@include e('post-share-item') {
+		@extend %pmreset;
+		color: $steel;
+		a {
+			color: $steel;
+			i {
+				
+			}
+		}
+	}
+	@include e('post-categories') {
+		font-size: 0px;
+		display: inline-block;
+	}
+	@include e('post-category') {
+		font-size: 14px;
+		color: $green;
+		text-decoration: none;
+		&:hover {
+			color: $green;
+		}
+		&::after {
+			content: "|";
+			margin: 0 4px;
+		}
+		
+		&:last-child {
+			&::after {
+				content: none;
+				margin: 0;
+			}
+		}
+	}
+	@include e('leading-content') {
+		
+	}
+	@include e('leading-images') {
+		
+	}
+	@include e('leading-image') {
+		width: 100%;
+		padding-top: 64.563%;
+		@include m('image-1') {
+			
+		}
+		@include m('image-2') {
+			
+		}
+		@include m('image-3') {
+			
+		}
+	}
+	@include e('leading-article') {
+		
+	}
+	@include e('post-title') {
+		
+	}
+	@include e('related-posts') {
+		@extend %pad-top;
+		background-color: $grey_light;
+	}
+}

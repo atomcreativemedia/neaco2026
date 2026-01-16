@@ -1,0 +1,224 @@
+
+.news-page {
+	@include e('posts') {
+		@extend %pad;
+	}
+	@include e('filter') {
+		.custom-select-wrapper {
+			position: relative;
+			display: inline-block;
+			width: 250px;
+		}
+		#category-select {
+			width: 100%;
+			padding: 10px 40px 10px 15px;
+			background-color: #ECECEC;
+			border: none;
+			border-radius: 5px;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			font-size: 1rem;
+			cursor: pointer;
+		}
+		.custom-chevron {
+			position: absolute;
+			right: 15px;
+			top: 50%;
+			transform: translateY(-50%);
+			pointer-events: none;
+			font-size: 0.8rem;
+			color: #666;
+		}
+		#category-select:focus {
+			outline: none;
+		}
+	}
+	@include e('posts-list') {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		@include media-breakpoint-up(xl) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+	@include e('post') {
+		position: relative;
+		@include media-breakpoint-up(xl) {
+			padding-top: 40%;
+			width: calc(50% - 15px);
+		}
+		@include media-breakpoint-up(xxl) {
+			padding-top: 35%;
+		}
+	}
+	@include e('post-overlay') {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		@include m('overlay-1') {
+			background: linear-gradient(to right, rgba($black,0.8), rgba($black,0.3));
+		}
+		@include m('overlay-2') {
+			height: 0;
+			background: $green;
+			@extend %transition;
+			@include media-breakpoint-up(xl) {
+				.news-page__post:hover & {
+			        height: 100%;
+			    }
+			}
+		}
+	}
+	@include e('post-content') {
+		position: relative;
+		padding: 50px 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		@include media-breakpoint-up(lg) {
+			padding: 80px 50px;
+		}
+		@include media-breakpoint-up(xl) {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			padding: 30px;
+		}
+	}
+	@include e('post-content-header') {
+		
+	}
+	@include e('post-meta') {
+		margin-bottom: 20px;
+	}
+	@include e('post-categories') {
+		font-size: 0px;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+	@include e('post-category') {
+		font-size: 14px;
+		color: $green;
+		text-decoration: none;
+		@extend %transition;
+		&:hover {
+			color: $green;
+		}
+		&::after {
+			content: "|";
+			margin: 0 4px;
+		}
+		
+		&:last-child {
+			&::after {
+				content: none;
+				margin: 0;
+			}
+		}
+	}
+	@include e('post-title') {
+		margin-bottom: 0;
+		font-size: 22px;
+		font-weight: 600;
+		a {
+			text-decoration: none;
+			color: $white;
+			@extend %transition;
+			@include media-breakpoint-up(lg) {
+				&:hover {
+					color: $green;
+				}
+			}
+			@include media-breakpoint-up(xl) {
+				.news-page__post:hover & {
+			        color: $white;
+			    }
+			}
+		}
+	}
+	@include e('post-content-text') {
+		overflow: hidden;
+		@extend %transition;
+		@include media-breakpoint-up(xl) {
+			max-height: 0;
+			.news-page__post:hover & {
+		        max-height: 480px;
+		    }
+		}
+		@include media-breakpoint-up(xxl) {
+			max-height: 0;
+			.news-page__post:hover & {
+		        max-height: 650px;
+		    }
+		}
+	}
+	@include e('post-desc') {
+		color: $white;
+		a {
+			color: $green;
+			text-decoration: none;
+			@extend %transition;
+			@include media-breakpoint-up(lg) {
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+	@include e('post-readmore') {
+		p {
+			margin-bottom: 0;
+			a {
+				color: $green;
+				text-decoration: none;
+				font-weight: 600;
+				&::after {
+					font-family: $fontawesome_pro;
+					content: " \f054";
+					font-size: 18px;
+				}
+				@include media-breakpoint-up(lg) {
+					&:hover {
+						color: $white;
+					}
+				}
+				@include media-breakpoint-up(xl) {
+					color: $white;
+					.news-page__post:hover & {
+				        color: $steel;
+				    }
+				}
+			}
+		}
+	}
+	@include e('pagination') {
+		position: relative;
+		display: block;
+		font-size: 0;
+		span, a {
+			font-size: 14px;
+			display: inline-block;
+			margin-right: 4px;
+			padding: 10px 15px;
+			text-decoration: none;
+			background-color: $grey_light;
+			color: $steel;
+			@extend %transition;
+		}
+		a:hover {
+			background-color: $green;
+			color: $white;
+		}
+		.current{
+			background-color: $green;
+			color: $white;
+		}
+	}
+	@include e('noposts') {
+		
+	}
+}
