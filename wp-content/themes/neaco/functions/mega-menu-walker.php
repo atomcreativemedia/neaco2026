@@ -213,12 +213,14 @@ class Neaco_Mega_Menu_Walker extends Walker_Nav_Menu {
 										<a class="mega-card" href="<?php echo esc_url($term_link); ?>">
 											<div class="mega-card__media">
 												<?php echo $this->render_acf_image($img, 'large', ['class' => 'mega-card__img']); ?>
-											</div>
-											<div class="mega-card__body">
-												<div class="mega-card__title"><?php echo esc_html($term->name); ?></div>
-												<?php if (!empty($range)) : ?>
-													<div class="mega-card__range"><?php echo esc_html($range); ?></div>
-												<?php endif; ?>
+												
+												<div class="mega-card__body">
+													<div class="mega-card__title"><?php echo esc_html($term->name); ?></div>
+													<?php if (!empty($range)) : ?>
+														<div class="mega-card__range"><?php echo esc_html($range); ?></div>
+													<?php endif; ?>
+												</div>
+												
 											</div>
 										</a>
 									<?php endforeach; ?>

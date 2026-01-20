@@ -1,20 +1,20 @@
 li.has-mega-menu {
-	@include media-breakpoint-up(lg) {
-		position: initial !important;
-	}
+	//background-color: lightblue;
 	.mega-menu { // the main container
 		position: absolute;
 		top: 0;
 		left: 100%;
 		width: 100%;
-		
 		display: none;
-		
+		transition: opacity 200ms ease, max-height 200ms ease;
 		@include media-breakpoint-up(lg) {
-			width: 100%;
-			left: 0;
-			top: unset;
-			background-color: $white;
+			width: 100vw;
+			top: 100%;
+			display: unset;
+			max-height: 0;
+			opacity: 0;
+			z-index: -1;
+			overflow: hidden;
 		}
 		
 		@include e('inner') {
@@ -24,6 +24,16 @@ li.has-mega-menu {
 			gap: 20px;
 			justify-content: flex-start;
 			align-items: flex-start;
+			
+			@include media-breakpoint-up(lg) {
+				background-color: $white;
+				box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+				@include radius(10px);
+				margin-top: 20px;
+			}
+			@include media-breakpoint-up(xl) {
+				padding: 50px;
+			}
 		}
 		@include e('cards') {
 			display: flex;
@@ -31,16 +41,27 @@ li.has-mega-menu {
 			gap: 20px 10px;
 			flex-wrap: wrap;
 			margin-top: 20px;
+			width: 100%;
+			@include media-breakpoint-up(lg) {
+				gap: 20px;
+				margin-top: 0;
+			}
 		}
 		.mega-card { // the "a" tag
 			
-			flex: 0 1 calc(50% - 5px);
+			flex: 0 0 100%;
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
 			
+			@include media-breakpoint-up(sm) {
+				flex: 0 1 calc(50% - 5px);
+			}
+			
 			@include media-breakpoint-up(lg) {
-				flex-basis: calc(25% - 5px);
+				flex-basis: calc(25% - 15px);
+				overfow: hidden;
+				@include radius(10px);
 			}
 			
 			@include e('media') {
@@ -55,11 +76,20 @@ li.has-mega-menu {
 				}
 			}
 			@include e('body') {
-				
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				width: 100%;
+				background: rgba($black,0.6);
+				padding: 5px 10px;
+				@include media-breakpoint-up(lg) {
+					bottom: 10px;
+				}
 			}
 			@include e('title') {
-				font-size: 18px;
+				font-size: 16px;
 				font-weight: 600;
+				color: $white;
 			}
 			@include e('range') {
 				font-size: 16px;
@@ -89,10 +119,15 @@ li.has-mega-menu {
 		}
 	}
 	
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(lg) {
+		//position: initial !important;
 		&:hover {
 			.mega-menu {
-				display: block;
+				//display: block;
+				//transform: translateY(24px);
+				max-height: 5000%;
+				opacity: 1;
+				overflow: visible;
 			}
 		}
 	}

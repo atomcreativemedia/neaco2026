@@ -183,6 +183,53 @@ $(document).ready(function() {
 		});
 	
 	
+	
+	
+	var LG_BREAKPOINT = 992;
+	
+	function positionMegaMenus() {
+		var isDesktop = window.innerWidth >= LG_BREAKPOINT;
+		
+		$(".has-mega-menu").each(function() {
+			var $li = $(this);
+			var $mega = $li.children(".mega-menu");
+			
+			if (!$mega.length) {
+				return;
+			}
+			
+			if (!isDesktop) {
+				// Reset for mobile / drawer
+				$mega[0].style.left = "";
+				return;
+			}
+			
+			var rect = $li[0].getBoundingClientRect();
+			
+			// Pull the mega menu back to align with viewport left
+			$mega[0].style.left = (-rect.left) + "px";
+		});
+	}
+	
+	// Initial run
+	positionMegaMenus();
+	
+	// Re-run on resize / orientation change
+	$(window).on("resize orientationchange", function() {
+		positionMegaMenus();
+	});
+	
+	// Safety for late layout shifts
+	$(window).on("load", function() {
+		positionMegaMenus();
+	});
+	
+	
+	
+	
+	
+	
+	
 	/***********************************
 	** Search Drawer Control
 	***********************************/
