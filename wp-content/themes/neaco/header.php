@@ -8,7 +8,10 @@
 	<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	
-	<?php if ($_SERVER['HTTP_HOST'] !== 'neaco.local:8888') : ?>
+	<?php if (!in_array($_SERVER['HTTP_HOST'], [
+		'neaco.local:8888',
+		'neaco.atomtesting.co.uk'
+	], true)) : ?>
 		<!-- Start of LiveChat (www.livechat.com) code -->
 		<script>
 		    window.__lc = window.__lc || {};
