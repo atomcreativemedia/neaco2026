@@ -62,6 +62,69 @@ if(function_exists("acf_add_local_field_group"))
 				'ajax' => 0,
 				'placeholder' => '',
 			),
+			
+			
+			/*********************************/
+			/*********************************/
+			/* Mega Menu Settings */
+			/*********************************/
+			/*********************************/
+			array (
+				// Generic Field Settings
+				'key' => 'field_image_rF82g110CK2591i',
+				'label' => 'Mega Menu Image',
+				'name' => 'mega_img',
+				'type' => 'image',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				
+				//Field Type Specific Settings
+				'return_format' => 'array', // array / url / id
+				'preview_size' => 'medium', // thumbnail / medium / large
+				'library' => 'all',
+				'min_width' => 0,
+				'min_height' => 0,
+				'min_size' => 0,
+				'max_width' => 0,
+				'max_height' => 0,
+				'max_size' => 0,
+				'mime_types' => '',
+			),
+			array (
+				// Generic Field Settings
+				'key' => 'field_text_fM59r382AV8103q',
+				'label' => 'Mega Menu Range Label',
+				'name' => 'mega_range',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				
+				//Field Type Specific Settings
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+				'readonly' => 0,
+				'disabled' => 0,
+			),
+			
+			
+			
+			
 		),
 		
 		'location' => array (// repeat this array for OR rules

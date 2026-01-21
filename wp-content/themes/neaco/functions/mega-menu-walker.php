@@ -192,7 +192,7 @@ class Neaco_Mega_Menu_Walker extends Walker_Nav_Menu {
 								<div class="mega-menu__cards">
 									<?php foreach ($children as $child_item) : ?>
 										<?php
-										$term = $this->get_term_from_menu_item($child_item);
+										/*$term = $this->get_term_from_menu_item($child_item);
 										if (!$term) {
 											continue;
 										}
@@ -208,9 +208,17 @@ class Neaco_Mega_Menu_Walker extends Walker_Nav_Menu {
 										$term_link = get_term_link($term);
 										if (is_wp_error($term_link)) {
 											continue;
+										}*/
+										$data = $this->get_mega_item_data($child_item);
+										if (empty($data) || empty($data['url']) || empty($data['title'])) {
+											continue;
 										}
 										?>
-										<a class="mega-card" href="<?php echo esc_url($term_link); ?>">
+										
+										
+										
+										
+										<!-- <a class="mega-card" href="<?php echo esc_url($term_link); ?>">
 											<div class="mega-card__media">
 												<?php echo $this->render_acf_image($img, 'large', ['class' => 'mega-card__img']); ?>
 												
@@ -222,7 +230,20 @@ class Neaco_Mega_Menu_Walker extends Walker_Nav_Menu {
 												</div>
 												
 											</div>
+										</a> -->
+										
+										<a class="mega-card" href="<?php echo esc_url($data['url']); ?>">
+											<div class="mega-card__media">
+												<?php echo $this->render_acf_image($data['img'], 'large', ['class' => 'mega-card__img']); ?>
+												<div class="mega-card__body">
+													<div class="mega-card__title"><?php echo esc_html($data['title']); ?></div>
+													<?php if (!empty($data['range'])) : ?>
+														<div class="mega-card__range"><?php echo esc_html($data['range']); ?></div>
+													<?php endif; ?>
+												</div>
+											</div>
 										</a>
+										
 									<?php endforeach; ?>
 								</div>
 							<?php endif; ?>
@@ -243,6 +264,85 @@ class Neaco_Mega_Menu_Walker extends Walker_Nav_Menu {
 		<?php
 		return ob_get_clean();
 	}
+	
+	
+	private function get_mega_item_data($menu_item) {
+		// Returns a standardised array for either:
+		// - taxonomy term (product_category)
+		// - product post (CPT: products)
+		//
+		// Array keys:
+		// - title (string)
+		// - url (string)
+		// - img (mixed: ACF ID/array/url)
+		// - range (string)
+
+		// TAXONOMY TERM CASE
+		$term = $this->get_term_from_menu_item($menu_item);
+		if ($term) {
+			$img = null;
+			$range = '';
+
+			if (function_exists('get_field')) {
+				$img = get_field('mega_img', $term);
+				$range = (string) get_field('mega_range', $term);
+			}
+
+			$url = get_term_link($term);
+			if (is_wp_error($url)) {
+				return null;
+			}
+
+			return [
+				'title' => $term->name,
+				'url' => $url,
+				'img' => $img,
+				'range' => $range,
+			];
+		}
+
+		// PRODUCT POST CASE (CPT: products)
+		if (!empty($menu_item->type) && $menu_item->type === 'post_type' && !empty($menu_item->object) && $menu_item->object === 'products') {
+			$post_id = !empty($menu_item->object_id) ? (int) $menu_item->object_id : 0;
+			if (!$post_id) {
+				return null;
+			}
+
+			$title = get_the_title($post_id);
+			$url = get_permalink($post_id);
+
+			if (empty($title) || empty($url)) {
+				return null;
+			}
+
+			$img = null;
+			$range = '';
+
+			// Prefer ACF mega_img if set, otherwise fall back to featured image.
+			if (function_exists('get_field')) {
+				$img = get_field('mega_img', $post_id);
+				$range = (string) get_field('mega_range', $post_id);
+			}
+
+			if (empty($img)) {
+				$thumb_id = get_post_thumbnail_id($post_id);
+				if ($thumb_id) {
+					$img = $thumb_id;
+				}
+			}
+
+			return [
+				'title' => $title,
+				'url' => $url,
+				'img' => $img,
+				'range' => $range,
+			];
+		}
+
+		// Anything else (pages, custom links, other taxonomies) - ignore for now.
+		return null;
+	}
+
 
 	private function get_term_from_menu_item($item) {
 		// Menu item for a taxonomy term typically has:

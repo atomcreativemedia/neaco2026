@@ -19,8 +19,8 @@
 # --- Allow themes and plugins (your actual code) ---
 !/wp-content/themes/
 !/wp-content/themes/**
-#!/wp-content/plugins/
-#!/wp-content/plugins/**
+!/wp-content/plugins/
+!/wp-content/plugins/**
 
 # --- Common WP stuff to always ignore ---
 /wp-content/uploads/
